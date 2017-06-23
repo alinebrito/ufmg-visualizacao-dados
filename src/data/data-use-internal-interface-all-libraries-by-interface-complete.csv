@@ -1,0 +1,692 @@
+api,library,usage
+org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser,Eclipse JDT,2.01
+org.eclipse.jdt.internal.ui.JavaPlugin,Eclipse JDT,1.70
+org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer,Eclipse JDT,1.70
+org.eclipse.xtext.ui.editor.contentassist.antlr.internal.DFA,Eclipse JDT,1.60
+org.eclipse.ui.internal.WorkbenchPlugin,Eclipse JDT,1.47
+org.eclipse.jdt.internal.compiler.impl.CompilerOptions,Eclipse JDT,1.38
+org.eclipse.jdt.internal.ui.wizards.NewElementWizard,Eclipse JDT,1.38
+org.eclipse.ui.internal.ide.IDEWorkbenchPlugin,Eclipse JDT,1.33
+org.eclipse.ui.internal.Workbench,Eclipse JDT,1.18
+org.eclipse.jdt.internal.compiler.CompilationResult,Eclipse JDT,1.10
+org.eclipse.jdt.internal.compiler.problem.DefaultProblemFactory,Eclipse JDT,1.07
+org.eclipse.wst.sse.core.internal.provisional.IStructuredModel,Eclipse JDT,1.05
+org.eclipse.ui.internal.ide.IDEWorkbenchMessages,Eclipse JDT,1.00
+org.eclipse.jdt.internal.compiler.DefaultErrorHandlingPolicies,Eclipse JDT,0.97
+org.eclipse.jdt.internal.compiler.env.ICompilationUnit,Eclipse JDT,0.97
+org.eclipse.jdt.internal.compiler.env.INameEnvironment,Eclipse JDT,0.96
+org.eclipse.jdt.internal.compiler.Compiler,Eclipse JDT,0.94
+org.eclipse.jdt.internal.compiler.env.NameEnvironmentAnswer,Eclipse JDT,0.94
+org.eclipse.wst.xml.core.internal.provisional.document.IDOMModel,Eclipse JDT,0.94
+org.eclipse.jdt.internal.compiler.ICompilerRequestor,Eclipse JDT,0.93
+org.eclipse.jdt.internal.compiler.classfmt.ClassFileReader,Eclipse JDT,0.93
+org.eclipse.jdt.internal.compiler.ClassFile,Eclipse JDT,0.92
+org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocument,Eclipse JDT,0.90
+org.eclipse.ui.internal.WorkbenchMessages,Eclipse JDT,0.88
+org.eclipse.jdt.internal.compiler.IErrorHandlingPolicy,Eclipse JDT,0.83
+org.eclipse.jdt.internal.compiler.IProblemFactory,Eclipse JDT,0.82
+org.eclipse.jdt.internal.ui.javaeditor.JavaEditor,Eclipse JDT,0.82
+org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocumentRegion,Eclipse JDT,0.80
+org.eclipse.ui.internal.browser.WorkbenchBrowserSupport,Eclipse JDT,0.78
+org.eclipse.wst.sse.core.internal.provisional.IndexedRegion,Eclipse JDT,0.78
+org.eclipse.wst.sse.core.internal.provisional.text.ITextRegion,Eclipse JDT,0.78
+org.eclipse.ui.internal.IWorkbenchHelpContextIds,Eclipse JDT,0.76
+org.eclipse.ui.internal.WorkbenchWindow,Eclipse JDT,0.76
+org.eclipse.wst.xml.core.internal.regions.DOMRegionContext,Eclipse JDT,0.73
+org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration,Eclipse JDT,0.72
+org.eclipse.jdt.internal.ui.JavaPluginImages,Eclipse JDT,0.72
+org.eclipse.jdt.internal.core.JavaProject,Eclipse JDT,0.71
+org.eclipse.jdt.internal.ui.wizards.TypedElementSelectionValidator,Eclipse JDT,0.70
+org.eclipse.ui.internal.WorkbenchPage,Eclipse JDT,0.70
+org.eclipse.wst.sse.core.internal.provisional.IModelManager,Eclipse JDT,0.70
+org.eclipse.ui.internal.util.Util,Eclipse JDT,0.69
+org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes,Eclipse JDT,0.69
+org.eclipse.jdt.internal.corext.util.JavaModelUtil,Eclipse JDT,0.69
+org.eclipse.ui.internal.editors.text.EditorsPlugin,Eclipse JDT,0.67
+org.eclipse.wst.xml.core.internal.provisional.document.IDOMNode,Eclipse JDT,0.65
+org.eclipse.jdt.internal.compiler.classfmt.ClassFormatException,Eclipse JDT,0.64
+org.eclipse.jdt.internal.ui.wizards.TypedViewerFilter,Eclipse JDT,0.64
+org.eclipse.wst.sse.core.internal.provisional.text.ITextRegionList,Eclipse JDT,0.64
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner,Eclipse JDT,0.63
+org.eclipse.debug.internal.ui.DebugUIPlugin,Eclipse JDT,0.60
+sun.misc.BASE64Encoder,JDK,0.63
+sun.misc.BASE64Decoder,JDK,0.34
+sun.misc.Unsafe,JDK,0.27
+sun.reflect.generics.reflectiveObjects.NotImplementedException,JDK,0.18
+sun.security.x509.X500Name,JDK,0.10
+sun.security.x509.AlgorithmId,JDK,0.09
+sun.security.pkcs.PKCS7,JDK,0.07
+sun.security.pkcs.ContentInfo,JDK,0.07
+sun.security.pkcs.SignerInfo,JDK,0.07
+sun.misc.Signal,JDK,0.07
+sun.misc.SignalHandler,JDK,0.06
+sun.reflect.ReflectionFactory,JDK,0.06
+sun.applet.AppletSecurity,JDK,0.05
+sun.net.util.IPAddressUtil,JDK,0.05
+sun.reflect.Reflection,JDK,0.04
+sun.audio.AudioPlayer,JDK,0.04
+sun.security.action.GetPropertyAction,JDK,0.04
+sun.misc.IOUtils,JDK,0.04
+sun.security.x509.X509CertImpl,JDK,0.04
+sun.audio.AudioStream,JDK,0.03
+sun.misc.Cleaner,JDK,0.03
+sun.security.krb5.Config,JDK,0.03
+sun.security.util.SecurityConstants,JDK,0.03
+sun.net.dns.ResolverConfiguration,JDK,0.03
+sun.rmi.runtime.Log,JDK,0.03
+sun.security.krb5.KrbException,JDK,0.03
+sun.reflect.FieldAccessor,JDK,0.03
+sun.security.krb5.PrincipalName,JDK,0.03
+sun.misc.Service,JDK,0.03
+sun.security.x509.X509CertInfo,JDK,0.03
+sun.awt.CausedFocusEvent,JDK,0.03
+sun.nio.ch.DirectBuffer,JDK,0.03
+sun.util.logging.resources.logging,JDK,0.03
+sun.awt.AppContext,JDK,0.03
+sun.net.www.http.HttpClient,JDK,0.03
+sun.misc.FpUtils,JDK,0.02
+sun.security.krb5.Credentials,JDK,0.02
+sun.swing.SwingUtilities2,JDK,0.02
+sun.awt.shell.ShellFolder,JDK,0.02
+sun.security.jgss.krb5.Krb5Util,JDK,0.02
+sun.security.x509.CertificateIssuerName,JDK,0.02
+sun.awt.windows.ThemeReader,JDK,0.02
+sun.misc.URLClassPath,JDK,0.02
+sun.security.action.GetLongAction,JDK,0.02
+sun.tools.jar.Main,JDK,0.02
+sun.security.util.DerValue,JDK,0.02
+sun.misc.Resource,JDK,0.02
+sun.net.www.ParseUtil,JDK,0.02
+sun.security.jca.GetInstance,JDK,0.02
+sun.security.action.GetBooleanAction,JDK,0.02
+org.jboss.netty.util.internal.ConcurrentHashMap,Jboss,1.29
+org.jboss.netty.util.internal.ExecutorUtil,Jboss,0.80
+org.jboss.netty.util.internal.StringUtil,Jboss,0.40
+org.jboss.netty.util.internal.LinkedTransferQueue,Jboss,0.32
+org.jboss.netty.util.internal.ConversionUtil,Jboss,0.30
+org.jboss.netty.util.internal.StackTraceSimplifier,Jboss,0.30
+org.jboss.netty.util.internal.ConcurrentIdentityHashMap,Jboss,0.27
+org.jboss.netty.util.internal.ConcurrentIdentityWeakKeyHashMap,Jboss,0.27
+org.jboss.netty.util.internal.ReusableIterator,Jboss,0.27
+org.jboss.netty.util.internal.SystemPropertyUtil,Jboss,0.27
+org.jboss.netty.util.internal.jzlib.JZlib,Jboss,0.27
+org.jboss.netty.util.internal.jzlib.ZStream,Jboss,0.27
+org.jboss.netty.util.internal.DeadLockProofWorker,Jboss,0.25
+org.jboss.netty.util.internal.jzlib.JZlib.WrapperType,Jboss,0.25
+org.jboss.netty.util.internal.ThreadLocalBoolean,Jboss,0.23
+org.jboss.netty.util.internal.NonReentrantLock,Jboss,0.21
+org.jboss.netty.util.internal.SharedResourceMisuseDetector,Jboss,0.21
+org.jboss.netty.util.internal.CaseIgnoringComparator,Jboss,0.19
+org.jboss.netty.util.internal.DetectionUtil,Jboss,0.15
+org.jboss.netty.util.internal.QueueFactory,Jboss,0.15
+org.jboss.netty.util.internal.IoWorkerRunnable,Jboss,0.13
+org.jboss.tools.common.validation.internal.ProjectValidationContext,Jboss,0.11
+org.jboss.tools.common.validation.internal.SimpleValidatingProjectTree,Jboss,0.11
+org.jboss.ide.eclipse.as.core.server.internal.JBossServer,Jboss,0.08
+org.jboss.netty.util.internal.ByteBufferUtil,Jboss,0.08
+org.jboss.solder.logging.internal.LogMessage,Jboss,0.08
+org.jboss.tools.common.validation.internal.ValidatingProjectSet,Jboss,0.08
+org.jboss.aesh.cl.internal.ProcessedCommand,Jboss,0.06
+org.jboss.ide.eclipse.as.core.server.internal.DeployableServer,Jboss,0.06
+org.jboss.solder.logging.internal.BasicLogger,Jboss,0.06
+org.jboss.solder.logging.internal.DelegatingBasicLogger,Jboss,0.06
+org.jboss.solder.logging.internal.Logger,Jboss,0.06
+org.jboss.aesh.cl.internal.ParameterInt,Jboss,0.04
+org.jboss.aesh.cl.internal.ProcessedOption,Jboss,0.04
+org.jboss.ajocado.framework.internal.PageExtensions,Jboss,0.04
+org.jboss.ajocado.framework.internal.SeleniumExtensions,Jboss,0.04
+org.jboss.ajocado.framework.internal.UnsupportedTypedSelenium,Jboss,0.04
+org.jboss.arquillian.ajocado.framework.internal.PageExtensionsImpl,Jboss,0.04
+org.jboss.arquillian.ajocado.framework.internal.SeleniumExtensionsImpl,Jboss,0.04
+org.jboss.arquillian.ajocado.framework.internal.UnsupportedTypedSelenium,Jboss,0.04
+org.jboss.errai.enterprise.client.cdi.internal.ObserverModel,Jboss,0.04
+org.jboss.esb.cinco.internal.BaseContext,Jboss,0.04
+org.jboss.esb.cinco.internal.DefaultChannelFactory,Jboss,0.04
+org.jboss.esb.cinco.internal.DefaultMessageFactory,Jboss,0.04
+org.jboss.esb.cinco.internal.DefaultServiceRegistry,Jboss,0.04
+org.jboss.esb.cinco.internal.ServiceDomains,Jboss,0.04
+org.jboss.esb.cinco.internal.ServiceRegistration,Jboss,0.04
+org.jboss.ide.eclipse.as.core.server.internal.DeployableServerBehavior,Jboss,0.04
+org.jboss.ide.eclipse.as.core.server.internal.JBossServerBehavior,Jboss,0.04
+org.jboss.ide.eclipse.as.core.server.internal.v7.JBoss7Server,Jboss,0.04
+org.hibernate.internal.CriteriaImpl,Hibernate,0.52
+org.hibernate.internal.SessionFactoryImpl,Hibernate,0.43
+org.hibernate.internal.util.StringHelper,Hibernate,0.36
+org.hibernate.internal.SessionImpl,Hibernate,0.30
+org.hibernate.context.internal.ThreadLocalSessionContext,Hibernate,0.25
+org.hibernate.engine.jdbc.internal.FormatStyle,Hibernate,0.25
+org.hibernate.engine.jdbc.internal.Formatter,Hibernate,0.24
+org.hibernate.internal.CoreMessageLogger,Hibernate,0.22
+org.hibernate.service.jta.platform.internal.AbstractJtaPlatform,Hibernate,0.20
+org.hibernate.collection.internal.PersistentSet,Hibernate,0.19
+org.hibernate.internal.util.ReflectHelper,Hibernate,0.19
+org.hibernate.collection.internal.PersistentMap,Hibernate,0.18
+org.hibernate.internal.util.config.ConfigurationHelper,Hibernate,0.18
+org.hibernate.context.internal.ManagedSessionContext,Hibernate,0.18
+org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory,Hibernate,0.16
+org.hibernate.internal.AbstractQueryImpl,Hibernate,0.16
+org.hibernate.service.internal.StandardServiceRegistryImpl,Hibernate,0.16
+org.hibernate.collection.internal.PersistentBag,Hibernate,0.15
+org.hibernate.collection.internal.PersistentList,Hibernate,0.15
+org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl,Hibernate,0.15
+org.hibernate.context.internal.JTASessionContext,Hibernate,0.14
+org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory,Hibernate,0.14
+org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory,Hibernate,0.14
+org.hibernate.internal.util.collections.ArrayHelper,Hibernate,0.14
+org.hibernate.internal.util.collections.CollectionHelper,Hibernate,0.14
+org.hibernate.engine.internal.Versioning,Hibernate,0.13
+org.hibernate.engine.transaction.internal.jta.JtaStatusHelper,Hibernate,0.13
+org.hibernate.collection.internal.PersistentSortedMap,Hibernate,0.13
+org.hibernate.collection.internal.PersistentSortedSet,Hibernate,0.13
+org.hibernate.engine.internal.TwoPhaseLoad,Hibernate,0.13
+org.hibernate.event.internal.DefaultSaveOrUpdateEventListener,Hibernate,0.13
+org.hibernate.hql.internal.antlr.HqlSqlTokenTypes,Hibernate,0.13
+org.hibernate.hql.internal.ast.QuerySyntaxException,Hibernate,0.13
+org.hibernate.internal.util.ConfigHelper,Hibernate,0.13
+org.hibernate.internal.util.xml.XmlDocument,Hibernate,0.13
+org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator,Hibernate,0.13
+org.hibernate.bytecode.internal.javassist.BytecodeProviderImpl,Hibernate,0.12
+org.hibernate.engine.internal.ForeignKeys,Hibernate,0.12
+org.hibernate.engine.transaction.internal.jta.JtaTransactionFactory,Hibernate,0.12
+org.hibernate.event.internal.DefaultFlushEntityEventListener,Hibernate,0.12
+org.hibernate.hql.internal.antlr.HqlBaseLexer,Hibernate,0.12
+org.hibernate.internal.SessionFactoryRegistry,Hibernate,0.12
+org.hibernate.internal.util.JdbcExceptionHelper,Hibernate,0.12
+org.hibernate.internal.util.MarkerObject,Hibernate,0.12
+org.hibernate.internal.util.collections.IdentityMap,Hibernate,0.12
+org.hibernate.internal.util.collections.JoinedIterator,Hibernate,0.12
+org.hibernate.internal.util.compare.EqualsHelper,Hibernate,0.12
+org.hibernate.internal.util.xml.XMLHelper,Hibernate,0.12
+org.hibernate.persister.internal.PersisterClassResolverInitiator,Hibernate,0.12
+org.hibernate.internal.FilterImpl,Hibernate,0.11
+com.android.internal.telephony.Phone,Android,1.02
+com.android.internal.telephony.TelephonyIntents,Android,0.86
+com.android.internal.telephony.ITelephony,Android,0.81
+com.android.internal.telephony.TelephonyProperties,Android,0.79
+com.android.internal.util.XmlUtils,Android,0.67
+com.android.internal.app.AlertController,Android,0.66
+com.android.internal.telephony.RILConstants,Android,0.62
+com.android.internal.telephony.CallerInfo,Android,0.61
+com.android.internal.R,Android,0.60
+com.android.internal.telephony.PhoneFactory,Android,0.56
+com.android.internal.app.AlertActivity,Android,0.55
+com.android.internal.telephony.IccCard,Android,0.45
+com.android.internal.util.ArrayUtils,Android,0.45
+com.android.internal.widget.LockPatternUtils,Android,0.43
+com.android.internal.app.IBatteryStats,Android,0.43
+com.android.internal.telephony.Connection,Android,0.42
+com.android.internal.telephony.GsmAlphabet,Android,0.41
+com.android.internal.util.Objects,Android,0.41
+com.android.internal.telephony.Call,Android,0.39
+com.android.internal.telephony.CommandException,Android,0.39
+com.android.internal.telephony.PhoneConstants,Android,0.38
+com.android.internal.os.PkgUsageStats,Android,0.38
+com.android.internal.widget.LockPatternView,Android,0.38
+com.android.internal.os.BatteryStatsImpl,Android,0.38
+com.android.internal.telephony.CommandsInterface,Android,0.37
+com.android.internal.content.PackageMonitor,Android,0.37
+com.android.internal.app.IUsageStats,Android,0.37
+com.android.internal.util.MemInfoReader,Android,0.37
+com.android.internal.content.PackageHelper,Android,0.37
+com.android.internal.telephony.DataConnection,Android,0.36
+com.android.internal.telephony.PhoneBase,Android,0.36
+com.android.internal.widget.PasswordEntryKeyboardHelper,Android,0.36
+com.android.internal.widget.PasswordEntryKeyboardView,Android,0.36
+com.android.internal.telephony.MmiCode,Android,0.36
+com.android.internal.os.storage.ExternalStorageFormatter,Android,0.35
+com.android.internal.telephony.CallForwardInfo,Android,0.35
+com.android.internal.util.CharSequences,Android,0.35
+com.android.internal.telephony.test.SimulatedRadioControl,Android,0.35
+com.android.internal.telephony.CallStateException,Android,0.34
+com.android.internal.os.PowerProfile,Android,0.34
+com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient,Android,0.34
+com.android.internal.telephony.cdma.CDMAPhone,Android,0.33
+com.android.internal.widget.LockPatternView.Cell,Android,0.33
+com.android.internal.app.IMediaContainerService,Android,0.33
+com.android.internal.telephony.cdma.CdmaCallWaitingNotification,Android,0.33
+com.android.internal.telephony.cdma.TtyIntent,Android,0.32
+com.android.internal.view.menu.MenuBuilder,Android,0.32
+com.android.internal.os.AtomicFile,Android,0.32
+com.android.internal.telephony.CallerInfoAsyncQuery,Android,0.31
+com.android.internal.telephony.sip.SipPhone,Android,0.31
+org.mockito.internal.util.reflection.Whitebox,Mockito,0.80
+org.mockito.internal.stubbing.answers.ThrowsException,Mockito,0.64
+org.mockito.internal.util.MockUtil,Mockito,0.47
+org.mockito.internal.verification.VerificationModeFactory,Mockito,0.45
+org.mockito.internal.verification.Times,Mockito,0.42
+org.mockito.internal.matchers.GreaterThan,Mockito,0.41
+org.mockito.internal.verification.VerificationModeFactory.times,Mockito,0.26
+org.mockito.internal.stubbing.answers.CallsRealMethods,Mockito,0.24
+org.mockito.internal.matchers.Equals,Mockito,0.22
+org.mockito.internal.stubbing.answers.Returns,Mockito,0.22
+org.mockito.internal.invocation.InvocationMatcher,Mockito,0.20
+org.mockito.internal.matchers.Any,Mockito,0.20
+org.mockito.internal.matchers.ArrayEquals,Mockito,0.20
+org.mockito.internal.matchers.VarargMatcher,Mockito,0.19
+org.mockito.internal.verification.api.VerificationData,Mockito,0.19
+org.mockito.internal.util.reflection.FieldSetter,Mockito,0.18
+org.mockito.internal.creation.MockSettingsImpl,Mockito,0.16
+org.mockito.internal.creation.jmock.ClassImposterizer,Mockito,0.16
+org.mockito.internal.invocation.Invocation,Mockito,0.16
+org.mockito.internal.invocation.InvocationsFinder,Mockito,0.16
+org.mockito.internal.matchers.apachecommons.ReflectionEquals,Mockito,0.16
+org.mockito.internal.progress.MockingProgress,Mockito,0.16
+org.mockito.internal.runners.util.FrameworkUsageValidator,Mockito,0.16
+org.mockito.internal.util.ObjectMethodsGuru,Mockito,0.16
+org.mockito.internal.verification.api.VerificationMode,Mockito,0.16
+org.mockito.internal.progress.ThreadSafeMockingProgress,Mockito,0.15
+org.mockito.internal.stubbing.answers.DoesNothing,Mockito,0.15
+org.mockito.internal.invocation.MockitoMethod,Mockito,0.14
+org.mockito.internal.invocation.realmethod.RealMethod,Mockito,0.14
+org.mockito.internal.util.RemoveFirstLine,Mockito,0.14
+org.mockito.internal.configuration.InjectingAnnotationEngine,Mockito,0.12
+org.mockito.internal.debugging.Location,Mockito,0.12
+org.mockito.internal.matchers.GreaterOrEqual,Mockito,0.12
+org.mockito.internal.matchers.InstanceOf,Mockito,0.12
+org.mockito.internal.matchers.LessOrEqual,Mockito,0.12
+org.mockito.internal.progress.HandyReturnValues,Mockito,0.12
+org.mockito.internal.progress.SequenceNumber,Mockito,0.12
+org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs,Mockito,0.12
+org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues,Mockito,0.12
+org.mockito.internal.stubbing.defaultanswers.ReturnsMocks,Mockito,0.12
+org.mockito.internal.stubbing.defaultanswers.ReturnsMoreEmptyValues,Mockito,0.12
+org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls,Mockito,0.12
+org.mockito.internal.util.MockCreationValidator,Mockito,0.12
+org.mockito.internal.util.StringJoiner.join,Mockito,0.12
+org.mockito.internal.util.reflection.FieldReader,Mockito,0.12
+org.mockito.internal.InOrderImpl,Mockito,0.11
+org.mockito.internal.configuration.injection.scanner.InjectMocksScanner,Mockito,0.11
+org.mockito.internal.configuration.injection.scanner.MockScanner,Mockito,0.11
+org.mockito.internal.creation.DelegatingMethod,Mockito,0.11
+org.mockito.internal.invocation.InvocationMarker,Mockito,0.11
+com.google.inject.internal.Lists,Google Guice,1.37
+com.google.inject.internal.Nullable,Google Guice,1.10
+com.google.inject.internal.Maps,Google Guice,0.97
+com.google.inject.internal.UniqueAnnotations,Google Guice,0.92
+com.google.inject.internal.Preconditions,Google Guice,0.63
+com.google.inject.internal.Sets,Google Guice,0.60
+com.google.inject.internal.ImmutableList,Google Guice,0.53
+com.google.inject.internal.MoreTypes,Google Guice,0.47
+com.google.inject.internal.MoreTypes.ParameterizedTypeImpl,Google Guice,0.47
+com.google.inject.internal.Errors,Google Guice,0.45
+com.google.inject.internal.ImmutableMap,Google Guice,0.42
+com.google.inject.internal.Annotations,Google Guice,0.37
+com.google.inject.internal.AbstractBindingBuilder,Google Guice,0.34
+com.google.inject.internal.ProviderMethodsModule,Google Guice,0.34
+com.google.inject.internal.util.Lists,Google Guice,0.34
+com.google.inject.internal.CircularDependencyProxy,Google Guice,0.32
+com.google.inject.internal.ErrorsException,Google Guice,0.32
+com.google.inject.internal.ImmutableSet,Google Guice,0.32
+com.google.inject.internal.LinkedBindingImpl,Google Guice,0.32
+com.google.inject.internal.ToStringBuilder,Google Guice,0.32
+com.google.inject.internal.Scoping,Google Guice,0.29
+com.google.inject.internal.BindingImpl,Google Guice,0.29
+com.google.inject.internal.ProviderMethod,Google Guice,0.29
+com.google.inject.internal.BindingBuilder,Google Guice,0.26
+com.google.inject.internal.ConstantBindingBuilderImpl,Google Guice,0.26
+com.google.inject.internal.ExposureBuilder,Google Guice,0.26
+com.google.inject.internal.PrivateElementsImpl,Google Guice,0.26
+com.google.inject.internal.Annotations.findScopeAnnotation,Google Guice,0.24
+com.google.inject.internal.BytecodeGen.Visibility,Google Guice,0.24
+com.google.inject.internal.BytecodeGen.newFastClass,Google Guice,0.24
+com.google.inject.internal.InternalInjectorCreator,Google Guice,0.24
+com.google.inject.internal.MoreTypes.GenericArrayTypeImpl,Google Guice,0.24
+com.google.inject.internal.MoreTypes.WildcardTypeImpl,Google Guice,0.24
+com.google.inject.internal.MoreTypes.getRawType,Google Guice,0.24
+com.google.inject.internal.Nullability,Google Guice,0.24
+com.google.inject.internal.util.ImmutableSet,Google Guice,0.24
+com.google.inject.internal.util.StackTraceElements,Google Guice,0.24
+com.google.inject.internal.Annotations.getKey,Google Guice,0.21
+com.google.inject.internal.BytecodeGen,Google Guice,0.21
+com.google.inject.internal.InjectorImpl.JitLimitation,Google Guice,0.21
+com.google.inject.internal.InjectorImpl.MethodInvoker,Google Guice,0.21
+com.google.inject.internal.Iterables,Google Guice,0.21
+com.google.inject.internal.MoreTypes.canonicalize,Google Guice,0.21
+com.google.inject.internal.util.Classes,Google Guice,0.21
+com.google.inject.internal.util.ImmutableMap,Google Guice,0.21
+com.google.inject.internal.util.SourceProvider,Google Guice,0.21
+com.google.inject.internal.util.ToStringBuilder,Google Guice,0.21
+com.google.inject.internal.Objects,Google Guice,0.18
+com.google.inject.internal.InjectorImpl.InjectorOptions,Google Guice,0.18
+com.google.inject.internal.Preconditions.checkArgument,Google Guice,0.18
+org.apache.maven.repository.internal.MavenRepositorySystemSession,Apache Maven,4.17
+org.apache.maven.repository.internal.DefaultServiceLocator,Apache Maven,1.35
+org.apache.maven.repository.internal.DefaultArtifactDescriptorReader,Apache Maven,1.26
+org.apache.maven.repository.internal.MavenRepositorySystemUtils,Apache Maven,1.13
+org.apache.maven.repository.internal.DefaultVersionResolver,Apache Maven,1.04
+org.apache.maven.repository.internal.DefaultVersionRangeResolver,Apache Maven,0.91
+org.apache.maven.properties.internal.EnvironmentUtils,Apache Maven,0.87
+org.apache.maven.lifecycle.internal.MojoDescriptorCreator,Apache Maven,0.74
+org.apache.maven.lifecycle.internal.MojoExecutor,Apache Maven,0.65
+org.apache.maven.lifecycle.internal.LifecycleExecutionPlanCalculator,Apache Maven,0.61
+org.apache.maven.lifecycle.internal.TaskSegment,Apache Maven,0.61
+org.apache.maven.lifecycle.internal.LifecycleTaskSegmentCalculator,Apache Maven,0.56
+org.apache.maven.lifecycle.internal.ProjectIndex,Apache Maven,0.56
+org.apache.maven.lifecycle.internal.BuilderCommon,Apache Maven,0.52
+org.apache.maven.lifecycle.internal.DependencyContext,Apache Maven,0.52
+org.apache.maven.lifecycle.internal.ExecutionPlanItem,Apache Maven,0.52
+org.apache.maven.lifecycle.internal.LifecycleStarter,Apache Maven,0.52
+org.apache.maven.plugin.internal.PluginDependenciesResolver,Apache Maven,0.52
+org.apache.maven.repository.internal.MavenServiceLocator,Apache Maven,0.52
+org.apache.maven.repository.internal.ArtifactDescriptorUtils,Apache Maven,0.48
+org.apache.maven.eventspy.internal.EventSpyDispatcher,Apache Maven,0.43
+org.apache.maven.lifecycle.internal.LifecycleWeaveBuilder,Apache Maven,0.43
+org.apache.maven.lifecycle.internal.ProjectBuildList,Apache Maven,0.39
+org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver,Apache Maven,0.35
+org.apache.maven.lifecycle.internal.ExecutionEventCatapult,Apache Maven,0.30
+org.apache.maven.lifecycle.internal.LifecycleDependencyResolver,Apache Maven,0.30
+org.apache.maven.lifecycle.internal.LifecycleTask,Apache Maven,0.30
+org.apache.maven.lifecycle.internal.PhaseRecorder,Apache Maven,0.30
+org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.GoalTask,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.LifecycleModuleBuilder,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.ProjectSegment,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.BuildPluginManagerStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.DefaultLifecyclesStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.LifecycleExecutionPlanCalculatorStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.LifecycleTaskSegmentCalculatorStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.LoggerStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.PluginPrefixResolverStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.PluginVersionResolverStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.ProjectDependencyGraphStub,Apache Maven,0.26
+org.apache.maven.lifecycle.internal.stub.DefaultSchedulesStub,Apache Maven,0.22
+org.apache.maven.lifecycle.internal.stub.ExecutionEventCatapultStub,Apache Maven,0.22
+org.apache.maven.lifecycle.internal.stub.MojoExecutorStub,Apache Maven,0.22
+org.apache.maven.repository.internal.SnapshotMetadataGeneratorFactory,Apache Maven,0.22
+org.apache.maven.lifecycle.internal.LifecycleDebugLogger,Apache Maven,0.17
+org.apache.maven.repository.internal.VersionsMetadataGeneratorFactory,Apache Maven,0.17
+org.apache.maven.mae.internal.container.ComponentSelector,Apache Maven,0.13
+org.apache.maven.mae.project.internal.SimpleModelResolver,Apache Maven,0.13
+org.apache.maven.repository.internal.MavenAetherModule,Apache Maven,0.13
+org.apache.maven.repository.internal.util.ConsoleRepositoryListener,Apache Maven,0.13
+org.openqa.selenium.internal.Locatable,OpenQA Selenium,2.72
+org.openqa.selenium.firefox.internal.ProfilesIni,OpenQA Selenium,2.32
+org.openqa.selenium.interactions.internal.Coordinates,OpenQA Selenium,1.68
+org.openqa.selenium.internal.WrapsDriver,OpenQA Selenium,1.40
+org.openqa.selenium.internal.WrapsElement,OpenQA Selenium,1.32
+org.openqa.selenium.internal.FindsByXPath,OpenQA Selenium,1.20
+org.openqa.selenium.internal.FindsById,OpenQA Selenium,1.12
+org.openqa.selenium.internal.FindsByClassName,OpenQA Selenium,1.04
+org.openqa.selenium.internal.Base64Encoder,OpenQA Selenium,0.92
+org.openqa.selenium.internal.FindsByCssSelector,OpenQA Selenium,0.84
+org.openqa.selenium.internal.FindsByLinkText,OpenQA Selenium,0.84
+org.openqa.selenium.internal.FindsByName,OpenQA Selenium,0.80
+org.openqa.selenium.internal.FindsByTagName,OpenQA Selenium,0.80
+org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler,OpenQA Selenium,0.80
+org.openqa.selenium.internal.seleniumemulation.JavascriptLibrary,OpenQA Selenium,0.76
+org.openqa.grid.internal.Registry,OpenQA Selenium,0.68
+org.openqa.selenium.internal.selenesedriver.FindElement,OpenQA Selenium,0.68
+org.openqa.selenium.internal.seleniumemulation.IsElementPresent,OpenQA Selenium,0.68
+org.openqa.selenium.internal.seleniumemulation.WaitForPageToLoad,OpenQA Selenium,0.68
+org.openqa.grid.internal.TestSlot,OpenQA Selenium,0.60
+org.openqa.selenium.internal.selenesedriver.GetTitle,OpenQA Selenium,0.60
+org.openqa.selenium.internal.selenesedriver.SendKeys,OpenQA Selenium,0.60
+org.openqa.selenium.remote.internal.JsonToWebElementConverter,OpenQA Selenium,0.60
+org.openqa.selenium.remote.internal.WebElementToJsonConverter,OpenQA Selenium,0.60
+org.openqa.grid.internal.RemoteProxy,OpenQA Selenium,0.56
+org.openqa.grid.internal.TestSession,OpenQA Selenium,0.56
+org.openqa.grid.internal.utils.GridHubConfiguration,OpenQA Selenium,0.56
+org.openqa.grid.internal.utils.HtmlRenderer,OpenQA Selenium,0.56
+org.openqa.selenium.firefox.internal.Executable,OpenQA Selenium,0.56
+org.openqa.selenium.firefox.internal.Streams,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.ClickElement,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.GetPageSource,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.IsElementDisplayed,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.QuitSelenium,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.TakeScreenshot,OpenQA Selenium,0.56
+org.openqa.selenium.internal.selenesedriver.ClearElement,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.ExecuteScript,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetCurrentUrl,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetElementAttribute,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetElementText,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetElementValue,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetTagName,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.GetUrl,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.IsElementEnabled,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.IsElementSelected,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.NewSession,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.SeleneseFunction,OpenQA Selenium,0.52
+org.openqa.selenium.internal.selenesedriver.SubmitElement,OpenQA Selenium,0.52
+org.openqa.selenium.internal.seleniumemulation.WaitForCondition,OpenQA Selenium,0.52
+org.openqa.selenium.remote.internal.CircularOutputStream,OpenQA Selenium,0.52
+com.facebook.internal.Utility,Facebook,14.45
+com.facebook.internal.SessionTracker,Facebook,14.29
+com.facebook.internal.SessionAuthorizationType,Facebook,14.05
+com.facebook.internal.Logger,Facebook,13.97
+com.facebook.internal.ServerProtocol,Facebook,13.97
+com.facebook.internal.Validate,Facebook,13.97
+com.facebook.internal.CacheableRequestBatch,Facebook,13.41
+com.facebook.internal.FileLruCache,Facebook,10.06
+com.facebook.internal.ImageRequest,Facebook,4.47
+com.facebook.internal.NativeProtocol,Facebook,4.47
+com.facebook.internal.AnalyticsEvents,Facebook,4.39
+com.facebook.internal.ImageDownloader,Facebook,4.39
+com.facebook.internal.ImageResponse,Facebook,4.39
+com.facebook.internal.PlatformServiceClient,Facebook,4.31
+com.facebook.internal.AttributionIdentifiers,Facebook,0.16
+com.facebook.internal.ImageResponseCache,Facebook,0.08
+com.facebook.internal.Utility.FetchedAppSettings,Facebook,0.08
+com.facebook.internal.WorkQueue,Facebook,0.08
+org.easymock.internal.matchers.Equals,Easy Mock,2.21
+org.easymock.internal.matchers.ArrayEquals,Easy Mock,1.90
+org.easymock.internal.ArgumentToString,Easy Mock,1.73
+org.easymock.internal.matchers.And,Easy Mock,1.73
+org.easymock.internal.matchers.Not,Easy Mock,1.73
+org.easymock.internal.matchers.Or,Easy Mock,1.73
+org.easymock.internal.matchers.Captures,Easy Mock,1.64
+org.easymock.internal.LastControl,Easy Mock,1.59
+org.easymock.internal.ArrayMatcher,Easy Mock,0.58
+org.easymock.internal.AlwaysMatcher,Easy Mock,0.49
+org.easymock.internal.MocksControl,Easy Mock,0.35
+org.easymock.internal.ClassExtensionHelper,Easy Mock,0.22
+org.easymock.internal.MocksControl.MockType,Easy Mock,0.22
+org.easymock.internal.ReplayState,Easy Mock,0.22
+org.easymock.internal.IProxyFactory,Easy Mock,0.18
+org.easymock.internal.matchers.StartsWith,Easy Mock,0.18
+org.easymock.internal.ClassProxyFactory,Easy Mock,0.13
+org.easymock.internal.ExpectedInvocation,Easy Mock,0.13
+org.easymock.internal.ReflectionUtils,Easy Mock,0.13
+org.easymock.internal.ClassInstantiatorFactory,Easy Mock,0.09
+org.easymock.internal.ClassProxyFactory.MockMethodInterceptor,Easy Mock,0.09
+org.easymock.internal.MockInvocationHandler,Easy Mock,0.09
+org.easymock.internal.MockitoObjectMethodsFilter,Easy Mock,0.09
+org.easymock.internal.ObjectMethodsFilter,Easy Mock,0.09
+org.easymock.internal.Range,Easy Mock,0.09
+org.easymock.internal.RuntimeExceptionWrapper,Easy Mock,0.09
+org.easymock.internal.matchers.Contains,Easy Mock,0.09
+org.easymock.classextension.internal.MockBuilder,Easy Mock,0.04
+org.easymock.classextension.internal.MocksClassControl,Easy Mock,0.04
+org.easymock.internal.AndroidSupport,Easy Mock,0.04
+org.easymock.internal.AssertionErrorWrapper,Easy Mock,0.04
+org.easymock.internal.BridgeMethodResolver,Easy Mock,0.04
+org.easymock.internal.DefaultClassInstantiator,Easy Mock,0.04
+org.easymock.internal.EasyMockProperties,Easy Mock,0.04
+org.easymock.internal.EasyMockStatement,Easy Mock,0.04
+org.easymock.internal.EqualsMatcher,Easy Mock,0.04
+org.easymock.internal.ErrorMessage,Easy Mock,0.04
+org.easymock.internal.IClassInstantiator,Easy Mock,0.04
+org.easymock.internal.Injector,Easy Mock,0.04
+org.easymock.internal.Invocation,Easy Mock,0.04
+org.easymock.internal.MethodSerializationWrapper,Easy Mock,0.04
+org.easymock.internal.MockBuilder,Easy Mock,0.04
+org.easymock.internal.MocksBehavior,Easy Mock,0.04
+org.easymock.internal.MocksControl.getControl,Easy Mock,0.04
+org.easymock.internal.MocksControl.getMockedType,Easy Mock,0.04
+org.easymock.internal.ObjenesisClassInstantiator,Easy Mock,0.04
+org.easymock.internal.RecordState,Easy Mock,0.04
+org.easymock.internal.Result,Easy Mock,0.04
+org.easymock.internal.Results,Easy Mock,0.04
+org.easymock.internal.matchers.Any,Easy Mock,0.04
+org.junit.internal.AssumptionViolatedException,Junit,0.29
+org.junit.internal.matchers.TypeSafeMatcher,Junit,0.29
+org.junit.internal.runners.JUnit4ClassRunner,Junit,0.14
+org.junit.internal.runners.statements.Fail,Junit,0.14
+org.junit.internal.TextListener,Junit,0.13
+org.junit.internal.matchers.StringContains.containsString,Junit,0.13
+org.junit.internal.runners.model.EachTestNotifier,Junit,0.12
+org.junit.internal.runners.JUnit38ClassRunner,Junit,0.11
+org.junit.internal.ArrayComparisonFailure,Junit,0.10
+org.junit.internal.runners.InitializationError,Junit,0.10
+org.junit.internal.runners.model.ReflectiveCallable,Junit,0.09
+org.junit.internal.runners.statements.FailOnTimeout,Junit,0.08
+org.junit.internal.matchers.IsCollectionContaining.hasItem,Junit,0.08
+org.junit.internal.runners.statements.InvokeMethod,Junit,0.07
+org.junit.internal.builders.AllDefaultPossibilitiesBuilder,Junit,0.07
+org.junit.internal.JUnitSystem,Junit,0.07
+org.junit.experimental.theories.internal.ParameterizedAssertionError,Junit,0.06
+org.junit.internal.RealSystem,Junit,0.06
+org.junit.experimental.theories.internal.Assignments,Junit,0.06
+org.junit.internal.runners.statements.ExpectException,Junit,0.06
+org.junit.internal.runners.model.MultipleFailureException,Junit,0.06
+org.junit.internal.runners.statements.RunBefores,Junit,0.06
+org.junit.internal.runners.statements.RunAfters,Junit,0.05
+org.junit.internal.matchers.Each,Junit,0.05
+org.junit.internal.runners.rules.RuleFieldValidator.RULE_VALIDATOR,Junit,0.04
+org.junit.experimental.theories.internal.AllMembersSupplier,Junit,0.04
+org.junit.internal.matchers.IsCollectionContaining,Junit,0.04
+org.junit.internal.matchers.StringContains,Junit,0.04
+org.junit.internal.builders.SuiteMethodBuilder,Junit,0.04
+org.junit.internal.matchers.IsCollectionContaining.hasItems,Junit,0.04
+org.junit.internal.runners.rules.RuleFieldValidator.CLASS_RULE_VALIDATOR,Junit,0.04
+org.junit.internal.runners.ErrorReportingRunner,Junit,0.04
+org.junit.internal.requests.ClassRequest,Junit,0.04
+org.junit.internal.matchers.Each.each,Junit,0.03
+org.junit.internal.ExactComparisonCriteria,Junit,0.03
+org.junit.internal.requests.FilterRequest,Junit,0.03
+org.junit.internal.requests.SortingRequest,Junit,0.03
+org.junit.internal.runners.TestClass,Junit,0.03
+org.junit.internal.runners.SuiteMethod,Junit,0.03
+org.junit.internal.InexactComparisonCriteria,Junit,0.03
+org.junit.internal.matchers.CombinableMatcher,Junit,0.03
+org.junit.internal.runners.TestClassRunner,Junit,0.03
+org.junit.internal.runners.TestMethod,Junit,0.03
+org.junit.internal.builders.JUnit4Builder,Junit,0.01
+org.junit.internal.runners.MethodValidator,Junit,0.01
+org.junit.internal.runners.TestClassMethodsRunner,Junit,0.01
+org.junit.internal.runners.rules.RuleFieldValidator.CLASS_RULE_METHOD_VALIDATOR,Junit,0.01
+org.junit.internal.runners.rules.RuleFieldValidator.RULE_METHOD_VALIDATOR,Junit,0.01
+org.junit.internal.MethodSorterTest,Junit,0.01
+org.junit.internal.builders.IgnoredClassRunner,Junit,0.01
+com.actionbarsherlock.internal.view.menu.MenuWrapper,Action Bar Sherlock,26.97
+com.actionbarsherlock.internal.view.menu.MenuBuilder,Action Bar Sherlock,26.75
+com.actionbarsherlock.internal.nineoldandroids.animation.ObjectAnimator,Action Bar Sherlock,26.35
+com.actionbarsherlock.internal.view.menu.ActionMenuPresenter,Action Bar Sherlock,26.24
+com.actionbarsherlock.internal.view.menu.MenuItemImpl,Action Bar Sherlock,26.24
+com.actionbarsherlock.internal.view.View_HasStateListenerSupport,Action Bar Sherlock,26.20
+com.actionbarsherlock.internal.view.menu.ActionMenuView,Action Bar Sherlock,26.20
+com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener,Action Bar Sherlock,26.16
+com.actionbarsherlock.internal.view.menu.SubMenuBuilder,Action Bar Sherlock,26.09
+com.actionbarsherlock.internal.nineoldandroids.view.animation.AnimatorProxy,Action Bar Sherlock,26.05
+com.actionbarsherlock.internal.nineoldandroids.animation.Animator,Action Bar Sherlock,25.98
+com.actionbarsherlock.internal.nineoldandroids.animation.AnimatorSet,Action Bar Sherlock,25.91
+com.actionbarsherlock.internal.widget.ActionBarContextView,Action Bar Sherlock,25.87
+com.actionbarsherlock.internal.view.menu.MenuItemWrapper,Action Bar Sherlock,25.76
+com.actionbarsherlock.internal.view.menu.MenuPopupHelper,Action Bar Sherlock,25.76
+com.actionbarsherlock.internal.ResourcesCompat.getResources_getBoolean,Action Bar Sherlock,25.72
+com.actionbarsherlock.internal.nineoldandroids.animation.Keyframe.IntKeyframe,Action Bar Sherlock,25.72
+com.actionbarsherlock.internal.widget.ActionBarView,Action Bar Sherlock,25.72
+com.actionbarsherlock.internal.widget.IcsLinearLayout,Action Bar Sherlock,25.72
+com.actionbarsherlock.internal.nineoldandroids.animation.Keyframe.FloatKeyframe,Action Bar Sherlock,25.69
+com.actionbarsherlock.internal.nineoldandroids.widget.NineFrameLayout,Action Bar Sherlock,25.65
+com.actionbarsherlock.internal.widget.ActionBarContainer,Action Bar Sherlock,25.61
+com.actionbarsherlock.internal.nineoldandroids.animation.Animator.AnimatorListener,Action Bar Sherlock,25.58
+com.actionbarsherlock.internal.nineoldandroids.widget.NineLinearLayout,Action Bar Sherlock,25.50
+com.actionbarsherlock.internal.widget.IcsListPopupWindow,Action Bar Sherlock,25.43
+com.actionbarsherlock.internal.app.ActionBarWrapper,Action Bar Sherlock,25.32
+com.actionbarsherlock.internal.view.menu.SubMenuWrapper,Action Bar Sherlock,25.21
+com.actionbarsherlock.internal.view.menu.MenuPresenter,Action Bar Sherlock,25.06
+com.actionbarsherlock.internal.nineoldandroids.animation.Keyframe.ObjectKeyframe,Action Bar Sherlock,24.73
+com.actionbarsherlock.internal.view.ActionProviderWrapper,Action Bar Sherlock,24.37
+com.actionbarsherlock.internal.widget.CapitalizingButton,Action Bar Sherlock,24.37
+com.actionbarsherlock.internal.ActionBarSherlockCompat,Action Bar Sherlock,24.33
+com.actionbarsherlock.internal.nineoldandroids.view.NineViewGroup,Action Bar Sherlock,24.07
+com.actionbarsherlock.internal.view.menu.ActionMenuView.ActionMenuChildView,Action Bar Sherlock,23.82
+com.actionbarsherlock.internal.nineoldandroids.widget.NineHorizontalScrollView,Action Bar Sherlock,23.74
+com.actionbarsherlock.internal.nineoldandroids.animation.AnimatorListenerAdapter,Action Bar Sherlock,23.71
+com.actionbarsherlock.internal.widget.ScrollingTabContainerView,Action Bar Sherlock,23.71
+com.actionbarsherlock.internal.ResourcesCompat.getResources_getInteger,Action Bar Sherlock,23.67
+com.actionbarsherlock.internal.ActionBarSherlockNative,Action Bar Sherlock,23.56
+com.actionbarsherlock.internal.app.ActionBarImpl,Action Bar Sherlock,23.49
+com.actionbarsherlock.internal.view.StandaloneActionMode,Action Bar Sherlock,22.87
+com.actionbarsherlock.internal.widget.IcsProgressBar,Action Bar Sherlock,22.87
+com.actionbarsherlock.internal.view.menu.ActionMenuItem,Action Bar Sherlock,22.28
+com.actionbarsherlock.internal.view.menu.MenuView,Action Bar Sherlock,21.95
+com.actionbarsherlock.internal.ActionBarSherlockCompat.cleanActivityName,Action Bar Sherlock,21.00
+com.actionbarsherlock.internal.widget.CollapsibleActionViewWrapper,Action Bar Sherlock,18.40
+com.actionbarsherlock.internal.widget.IcsToast,Action Bar Sherlock,10.00
+com.actionbarsherlock.internal.ResourcesCompat,Action Bar Sherlock,8.76
+com.actionbarsherlock.internal.view.menu.MenuItemMule,Action Bar Sherlock,1.14
+com.actionbarsherlock.internal.view.menu.MenuMule,Action Bar Sherlock,1.14
+com.google.gson.internal.Streams,Google Gson,0.65
+com.google.gson.internal.StringMap,Google Gson,0.63
+com.google.gson.internal.$Gson$Types,Google Gson,0.54
+com.google.gson.internal.ConstructorConstructor,Google Gson,0.54
+com.google.gson.internal.$Gson$Preconditions,Google Gson,0.52
+com.google.gson.internal.$Gson$Preconditions.checkArgument,Google Gson,0.49
+com.google.gson.internal.bind.TypeAdapters,Google Gson,0.49
+com.google.gson.internal.$Gson$Preconditions.checkNotNull,Google Gson,0.48
+com.google.gson.internal.Excluder,Google Gson,0.48
+com.google.gson.internal.Primitives,Google Gson,0.48
+com.google.gson.internal.LazilyParsedNumber,Google Gson,0.47
+com.google.gson.internal.bind.JsonTreeReader,Google Gson,0.46
+com.google.gson.internal.ObjectConstructor,Google Gson,0.43
+com.google.gson.internal.bind.ReflectiveTypeAdapterFactory,Google Gson,0.43
+com.google.gson.internal.bind.JsonTreeWriter,Google Gson,0.42
+com.google.gson.internal.JsonReaderInternalAccess,Google Gson,0.40
+com.google.gson.internal.bind.ArrayTypeAdapter,Google Gson,0.38
+com.google.gson.internal.bind.MapTypeAdapterFactory,Google Gson,0.38
+com.google.gson.internal.bind.DateTypeAdapter,Google Gson,0.35
+com.google.gson.internal.bind.ObjectTypeAdapter,Google Gson,0.35
+com.google.gson.internal.bind.TimeTypeAdapter,Google Gson,0.35
+com.google.gson.internal.bind.CollectionTypeAdapterFactory,Google Gson,0.34
+com.google.gson.internal.bind.SqlDateTypeAdapter,Google Gson,0.34
+com.google.gson.internal.LinkedTreeMap,Google Gson,0.32
+com.google.gson.internal.bind.MiniGson,Google Gson,0.13
+com.google.gson.internal.bind.TypeAdapter,Google Gson,0.13
+com.google.gson.internal.Pair,Google Gson,0.11
+com.google.gson.internal.bind.BigDecimalTypeAdapter,Google Gson,0.08
+com.google.gson.internal.bind.BigIntegerTypeAdapter,Google Gson,0.08
+com.google.gson.internal.LinkedHashTreeMap.AvlBuilder,Google Gson,0.06
+com.google.gson.internal.LinkedHashTreeMap.AvlIterator,Google Gson,0.06
+com.google.gson.internal.LinkedHashTreeMap.Node,Google Gson,0.06
+com.google.gson.internal.Preconditions.checkArgument,Google Gson,0.06
+com.google.gson.internal.Preconditions.checkNotNull,Google Gson,0.06
+com.google.gson.internal.$Preconditions.checkArgument,Google Gson,0.04
+com.google.gson.internal.$Preconditions.checkNotNull,Google Gson,0.04
+com.google.gson.internal.LinkedHashTreeMap,Google Gson,0.04
+com.google.gson.internal.UnsafeAllocator,Google Gson,0.04
+com.google.gson.internal.bind.JsonElementWriter,Google Gson,0.04
+com.google.gson.internal.$Types,Google Gson,0.03
+com.google.gson.internal.GsonInternalAccess,Google Gson,0.03
+com.google.gson.internal.alpha.Intercept,Google Gson,0.03
+com.google.gson.internal.alpha.JsonPostDeserializer,Google Gson,0.03
+com.google.gson.internal.bind.CollectionTypeAdapter,Google Gson,0.03
+com.google.gson.internal.bind.JsonElementReader,Google Gson,0.03
+com.google.gson.internal.bind.ReflectiveTypeAdapter,Google Gson,0.03
+com.google.gson.internal.bind.StringToValueMapTypeAdapter,Google Gson,0.03
+com.google.gson.webservice.definition.internal.utils.Preconditions,Google Gson,0.03
+com.google.gson.internal.$Preconditions,Google Gson,0.01
+com.google.gson.internal.ParameterizedTypeHandlerMap,Google Gson,0.01
+org.hamcrest.internal.ArrayIterator,Hamcrest,0.52
+org.hamcrest.internal.SelfDescribingValueIterator,Hamcrest,0.45
+org.hamcrest.internal.ReflectiveTypeFinder,Hamcrest,0.16
+org.hamcrest.text.pattern.internal.ast.AnyCharacter,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.CaptureGroup,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.CharacterInRange,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.CharacterInUnicodeCategory,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.CharacterNotInRange,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.CharacterNotInUnicodeCategory,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.Choice,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.Exactly,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.GroupReference,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.ListOf,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.Literal,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.OneOrMore,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.Optional,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.Sequence,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.ast.ZeroOrMore,Hamcrest,0.05
+org.hamcrest.text.pattern.internal.naming.GroupNamespace,Hamcrest,0.05
+org.hamcrest.approvals.internal.IO,Hamcrest,0.02
+org.hamcrest.internal.SelfDescribingValue,Hamcrest,0.01
+org.hamcrest.internal.StringDescription,Hamcrest,0.01
+org.hamcrest.text.pattern.internal.naming.Path,Hamcrest,0.01

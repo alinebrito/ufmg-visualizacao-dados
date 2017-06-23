@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Interfaces Internas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendors/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS customizado -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="vendors/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+      <div class="jumbotron">
+            <h1>Um Estudo em Larga Escala sobre o <br>Uso de Interfaces Internas</h1> 
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row " >
+            <div class="col-lg-3 col-sm-6">
+                <div class="circle-tile">
+                    <a>
+                        <div class="circle-tile-heading dark-blue">
+                            <i class="fa fa-github fa-fw fa-3x"></i>
+                        </div>
+                    </a>
+                    <div class="circle-tile-content dark-blue">
+                        <div class="circle-tile-description text-faded">
+                            Projetos
+                        </div>
+                        <div class="circle-tile-number text-faded">
+                            263 mil
+                            <span id="sparklineA"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="circle-tile">
+                    <a>
+                        <div class="circle-tile-heading dark-blue">
+                            <i class="fa fa-file-text-o fa-fw fa-3x"></i>
+                        </div>
+                    </a>
+                    <div class="circle-tile-content dark-blue">
+                        <div class="circle-tile-description text-faded">
+                            Arquivos Java
+                        </div>
+                        <div class="circle-tile-number text-faded">
+                            16 milhões
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="circle-tile">
+                    <a>
+                        <div class="circle-tile-heading dark-blue">
+                            <i class="fa fa-info fa-fw fa-3x"></i>
+                        </div>
+                    </a>
+                    <div class="circle-tile-content dark-blue">
+                        <div class="circle-tile-description text-faded">
+                            Interfaces
+                        </div>
+                        <div class="circle-tile-number text-faded">
+                            131 milhões
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="circle-tile">
+                    <a>
+                        <div class="circle-tile-heading dark-blue">
+                            <i class="fa fa-tasks fa-fw fa-3x"></i>
+                        </div>
+                    </a>
+                    <div class="circle-tile-content dark-blue">
+                        <div class="circle-tile-description text-faded">
+                            Bibliotecas
+                        </div>
+                        <div class="circle-tile-number text-faded">
+                            15
+                            <span id="sparklineB"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Content -->
+        <div id="div-chart-principal"  class="top-margin">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Frequência de Utilização de Interfaces Internas
+                    </div>
+                    <div class="panel-body">
+                        <div id="chart1-area" class="col-lg-12">
+                            <div id="chart1-area-plot">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Distribuição do Uso de Interfaces Internas
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12 visualization">
+                            <div id="chart2-area" class="col-lg-12 ">
+                                <div id="chart2-area-plot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Distribuição do Uso de Interfaces Internas
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12 visualization">
+                            <div id="chart22-area" class="col-lg-12 ">
+                                <div id="chart22-area-plot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Frequência de Utilização de Interfaces Internas e Públicas
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12 visualization">
+                            <div id="chart2-area" class="col-lg-6">
+                                <div id="chart3-area-plot">
+                                </div>
+                            </div>
+                            <div id="chart3-area" class="col-lg-6">
+                                <div id="chart4-area-plot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>  
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+    <!-- jQuery -->
+    <script src="vendors/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/js/bootstrap.min.js"></script>
+
+    <!-- D3 -->
+    <script src="vendors/js/d3.v3.min.js"></script>
+   
+
+    <!-- Script para manipulação dos dados e funções do gráfico. -->
+    <script src="assets/js/dataUtil.js"></script>
+    
+
+    <script src="assets/js/plotBar.js"></script>
+    <script src="assets/js/plotBox.js"></script>
+    <script src="assets/js/plotDonut.js"></script>
+    <script src="assets/js/plotScatter.js"></script>
+
+    <script src="assets/js/chartUtils.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
