@@ -8,4 +8,10 @@ $( document ).ready(function() {
 	readDataAndCreateBarCharIIAndDonutChart();
 	readDataAndCreateBoxPlot();
 	readDataAndCreateScatterChart();
+	showScatterPlot();
+
+	$("#typeChart label").click(function() {
+    	var option = $(this).find('input').attr('value')
+    	selectVisualization(option);
+	});
 });

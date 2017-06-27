@@ -32,9 +32,9 @@ function ramdomPoint(value){
  * @param  {[map]} data  [dados do gráfico.]
  */
 function createScatterChart(idDiv, data){
-	var margin = {top: 10, right: 50, bottom: 100, left: 70};
+	var margin = {top: 5, right: 20, bottom: 20, left: 50};
 	var width = window.innerWidth - margin.left - margin.right - 400;
-	var height = 500 - margin.top - margin.bottom;
+	var height = 200 - margin.top - margin.bottom;
 
 	// Escala de cor.
 	color = d3.scale.category20();
@@ -84,8 +84,8 @@ function createScatterChart(idDiv, data){
 		.append("text")
 		.attr("transform", "rotate(-90)")
 		.attr("y", 6)
-		.attr("dy", "-3.5em")
-		.style("font-size", "16px")
+		.attr("dy", "-4.5em")
+		.style("font-size", "11px")
 		.style("text-anchor", "end")
 		.text("Uso da Interface Interna (%)");
 

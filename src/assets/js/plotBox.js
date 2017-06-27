@@ -351,9 +351,11 @@ function createDataFormatBoxPlot(csv){
 function createBoxPlot(idDiv, data){
 
 	var labels = true; // mostrar os labels ao lado de cada boxplot.
-	var margin = {top: 10, right: 50, bottom: 100, left: 60};
+	var margin = {top: 10, right: 20, bottom: 20, left: 60};
 	var width = window.innerWidth - margin.left - margin.right - 400;
-	var height = 400 - margin.top - margin.bottom;
+	var height = 200 - margin.top - margin.bottom;
+
+
 	var min = 0;
 	var max = 2.5;
 
@@ -402,9 +404,9 @@ function createBoxPlot(idDiv, data){
 		.append("text")
 		.attr("transform", "rotate(-90)")
 		.attr("y", 6)
-		.attr("dy", "-3em")
+		.attr("dy", "-3.5em")
 		.style("text-anchor", "end")
-		.style("font-size", "16px") 
+		.style("font-size", "11px") 
 		.text("Uso das Interfaces Internas (%)");		
 
 	// Adiciona eixo X.	

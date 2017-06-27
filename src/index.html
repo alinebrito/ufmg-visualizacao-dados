@@ -110,74 +110,155 @@
                 </div>
             </div>
         </div>
+
         <!-- Page Content -->
         <div id="div-chart-principal"  class="top-margin">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Frequência de Utilização de Interfaces Internas
-                    </div>
-                    <div class="panel-body">
-                        <div id="chart1-area" class="col-lg-12">
-                            <div id="chart1-area-plot">
+
+            <div class="row">
+                <div class="col-xs-10" id="div1">
+                    <div id="div1-1">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Frequência de Utilização de Interfaces Internas
+                                </div>
+                                <div class="panel-body outer">
+                                    <div id="chart1-area" class="col-lg-12 ">
+                                        <div id="chart1-area-plot">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Distribuição do Uso de Interfaces Internas
+                    <div id="div1-2">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Distribuição do Uso de Interfaces Internas
+                                </div>
+                                <div class="panel-body" id="scatterPlot">
+                                    <div class="col-lg-12 outer">
+                                        <div id="chart22-area" class="col-lg-12 inner">
+                                            <div id="chart22-area-plot">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body" id="boxPlot">
+                                    <div id="chart2-area" class="col-lg-12 ">
+                                        <div id="chart2-area-plot">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="typeChart"> 
+                                        <div class="panel-heading text-center">
+                                            <label class="radio-inline"><input type="radio" name="optionChart" value='1' >Box Plot</label>
+                                            <label class="radio-inline"><input type="radio" name="optionChart" value='2' checked='checked'>Scatter Plot</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="col-lg-12 visualization">
-                            <div id="chart2-area" class="col-lg-12 ">
-                                <div id="chart2-area-plot">
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="col-xs-2" id="div2">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Bibliotecas
+                            </div>
+                            <div class="panel-body libs">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Action Bar Sherlock</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Android</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Apache Maven</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Easy Mock</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Eclipse JDT</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Facebook</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Google Guice</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Google Gson</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Hamcrest</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Hibernate</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Jboss</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">JDK</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Junit</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Mockito</label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label><input type="checkbox" value="">Selenium OpenQA</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Distribuição do Uso de Interfaces Internas
-                    </div>
-                    <div class="panel-body">
-                        <div class="col-lg-12 visualization">
-                            <div id="chart22-area" class="col-lg-12 ">
-                                <div id="chart22-area-plot">
+             <div class="row ">
+                <div class="panel-group col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Frequência de Utilização de Interfaces Internas e Públicas
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 visualization">
+                                <div id="chart2-area" class="col-lg-6">
+                                    <div id="chart3-area-plot">
+                                    </div>
+                                </div>
+                                <div id="chart3-area" class="col-lg-6">
+                                    <div id="chart4-area-plot">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Frequência de Utilização de Interfaces Internas e Públicas
                     </div>
-                    <div class="panel-body">
-                        <div class="col-lg-12 visualization">
-                            <div id="chart2-area" class="col-lg-6">
-                                <div id="chart3-area-plot">
-                                </div>
-                            </div>
-                            <div id="chart3-area" class="col-lg-6">
-                                <div id="chart4-area-plot">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>  
+             </div>
 
-                </div>
-            </div>  
         </div>
     </div>
     <!-- /.container-fluid -->

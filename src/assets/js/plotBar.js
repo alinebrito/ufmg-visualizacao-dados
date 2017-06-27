@@ -54,9 +54,9 @@ function createBarChart(idDiv, dataset, labelY, fator, containsLegend, options){
 		});
 	});
 
-	var margin = {top: 20, right: 30, bottom: 30, left: 60};
+	var margin = {top: 10, right: 20, bottom: 20, left: 60};
 	var width = (window.innerWidth/fator) - margin.left - margin.right - 40;
-	var height = 500 - margin.top - margin.bottom;
+	var height = 200 - margin.top - margin.bottom;
 
 	var x0 = d3.scale.ordinal()
 		.rangeRoundBands([0, width], .1);
@@ -98,7 +98,7 @@ function createBarChart(idDiv, dataset, labelY, fator, containsLegend, options){
 		.attr("y", 3)
 		.attr("dy", "-3em")
 		.style("text-anchor", "end")
-		.style("font-size", "16px")
+		.style("font-size", "11px")
 		.text(labelY);
 
 	var barChart = svg.selectAll(".bar")
