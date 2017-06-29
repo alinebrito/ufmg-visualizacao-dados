@@ -1,5 +1,5 @@
 /**
- * Script para criar os gráficos de barras I e II.
+ * Script para criação e manipulação dos gráficos de barras.
  */
 
 //Configurações de margem.
@@ -12,8 +12,6 @@ var color = d3.scale.category20();
 
 //Dados originais dos gráficos.
 var dataChartI = null;
-var dataChartII = null;
-
 
 /**
  * Cria a legenda do gráfico.
@@ -47,6 +45,8 @@ function createLegend(svg, options, width){
 }
 
 function updateBarChart(svg, properties, x0, x1, y){
+
+	var color = d3.scale.category20();
 
 	var barChart = svg.selectAll(".bar")
 	.data(properties.dataset);
@@ -271,7 +271,7 @@ function createBarCharI(data){
 		properties.dataset = createDataFormatChartI(data);
 		properties.options = ["Interfaces Internas"];
 		properties.labelY = 'Interfaces Internas Usadas (%)';
-		properties.width = (window.innerWidth/1.02);
+		properties.width = data.length * 110; //100px para cada barra.
 		properties.containsLegend = false;
 
 		var barChart = createBarChart(properties);

@@ -29,7 +29,7 @@ function readDataAndCreateBarCharIIAndDonutChart(){
 function readDataAndCreateScatterChart(){
 	var file = '/data/data-use-internal-interface-all-libraries-by-interface.csv';
 	d3.csv(file, function(error, data) {
-		createScatterChartInternalInterface(data);
+		initScatterPlot(data);
 	});
 }
 

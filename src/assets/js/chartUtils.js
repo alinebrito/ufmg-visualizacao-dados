@@ -13,6 +13,7 @@ function selectVisualization(option){
 
 function updateChartsByLibraries(libs){
 	updateBarCharI(libs);
+	updateScatterPlot(libs);
 	//updateBoxPlot(libs);
 	//updateBarChart(libs);
 	//updateScatterPlot(libs)
