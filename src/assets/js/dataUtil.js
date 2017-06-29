@@ -8,7 +8,7 @@
 function readDataAndCreateBarChartI(){
 	var file = '/data/data-use-internal-interfaces-by-library.csv';
 	d3.csv(file, function(error, data) {
-		createBarCharUseInternalInterface(data);
+		initBarChartI(data);
 	});
 }
 
@@ -18,7 +18,7 @@ function readDataAndCreateBarChartI(){
 function readDataAndCreateBarCharIIAndDonutChart(){
 	var file = '/data/data-use-internal-and-public-interfaces-junit-mockito.csv';
 	d3.csv(file, function(error, data) {
-		createBarCharPublicAndInternalInterface(data);
+		createBarCharII(data);
 		createDonutCharPublicAndInternalInterface(data);
 	});
 }

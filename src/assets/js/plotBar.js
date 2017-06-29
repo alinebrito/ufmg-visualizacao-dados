@@ -2,11 +2,17 @@
  * Script para criar os gráficos de barras I e II.
  */
 
+//Configurações de margem.
+var margin = {top: 10, right: 20, bottom: 20, left: 60};
+var width = - margin.left - margin.right - 40;
+var height = 200 - margin.top - margin.bottom;
 
 // Escala de cores.
-var colorRange = d3.scale.category10();
-var color = d3.scale.ordinal()
-	.range(colorRange.range());
+var color = d3.scale.category20();
+
+//Dados originais dos gráficos.
+var dataChartI = null;
+var dataChartII = null;
 
 
 /**
@@ -17,112 +23,132 @@ var color = d3.scale.ordinal()
  * @return {[type]}         [description]
  */
 function createLegend(svg, options, width){
+
 	var legend = svg.selectAll(".legend")
-		.data(options.slice())
-		.enter().append("g")
-		.attr("class", "legend")
-		.attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });
+	.data(options.slice())
+	.enter().append("g")
+	.attr("class", "legend")
+	.attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });
 
 	legend.append("rect")
-		.attr("x", width - 18)
-		.attr("width", 18)
-		.attr("height", 18)
-		.style("fill", color);
+	.attr("x", width - 18)
+	.attr("width", 18)
+	.attr("height", 18)
+	.style("fill", color);
 
 	legend.append("text")
-		.attr("x", width - 24)
-		.attr("y", 9)
-		.attr("dy", ".35em")
-		.style("text-anchor", "end")
-		.text(function(d) {
-			return d;
-		});
+	.attr("x", width - 24)
+	.attr("y", 9)
+	.attr("dy", ".35em")
+	.style("text-anchor", "end")
+	.text(function(d) {
+		return d;
+	});
 }
 
+function updateBarChart(svg, properties, x0, x1, y){
 
+	var barChart = svg.selectAll(".bar")
+	.data(properties.dataset);
 
-/**
- * Cria um gráfico de barras.
- * @param  {[type]} idDiv -  identificador da div.
- * @param  {[type]} data  - dados do gráfico.
- */
-function createBarChart(idDiv, dataset, labelY, fator, containsLegend, options){
+	barChart.enter().append("g")
+	.attr("class", "rect")
+	.style("fill", function(d) {return color(x0(d.library));})
+	.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
 
-	dataset.forEach(function(d) {
-		d.val = options.map(function(name) {
+	barChart.exit().remove();
+
+	barChart.append("g")
+	.attr("class", "rect")
+	.style("fill", function(d) {return color(x0(d.library));})
+	.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
+
+	barChart.selectAll("rect")
+	.data(function(d) { return d.val; })
+	.enter().append("rect")
+	.attr("width", x1.rangeBand())
+	.attr("x", function(d) { return x1(d.name); })
+	.attr("y", function(d) { return y(d.value); })
+	.attr("value", function(d){return d.name;})
+	.attr("height", function(d) { return height - y(d.value); });
+
+	return barChart;
+}
+
+//function createBarChart(idDiv, dataset, labelY, width, options, containsLegend){
+function createBarChart(properties){
+ 	
+	var max = 0; //Valor máximo do eixo Y.
+
+	//Configura eixos e respectivas escalas.
+	var x0 = d3.scale
+	.ordinal()
+	.rangeRoundBands([0, properties.width], .1);
+
+	var x1 = d3.scale
+	.ordinal();
+
+	var y = d3.scale
+	.linear()
+	.range([height, 0]);
+
+	var xAxis = d3.svg
+	.axis()
+	.scale(x0)
+	.orient("bottom");
+
+	var yAxis = d3.svg
+	.axis()
+	.scale(y)
+	.orient("left")
+	.tickFormat(d3.format(".2s"));
+
+	//Customiza metadados para gerar o gráfico.
+	properties.dataset.forEach(function(d) {
+		d.val = properties.options.map(function(name) {
+			var maxOption = d3.max(properties.dataset, function(d) { return +d[name];});
+			max = (maxOption > max) ? maxOption : max;
 			return {name: name, value: +d[name]};
 		});
 	});
 
-	var margin = {top: 10, right: 20, bottom: 20, left: 60};
-	var width = (window.innerWidth/fator) - margin.left - margin.right - 40;
-	var height = 200 - margin.top - margin.bottom;
+	d3.select("#" + properties.div + "-svg").remove();
+	var svg = d3.select("#" + properties.div).append("svg")
+	.attr("id", properties.div + "-svg")
+	.attr("width", properties.width + margin.left + margin.right)
+	.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	var x0 = d3.scale.ordinal()
-		.rangeRoundBands([0, width], .1);
-
-	var x1 = d3.scale.ordinal();
-
-	var y = d3.scale.linear()
-		.range([height, 0]);
-
-	var xAxis = d3.svg.axis()
-		.scale(x0)
-		.orient("bottom");
-
-	var yAxis = d3.svg.axis()
-		.scale(y)
-		.orient("left")
-		.tickFormat(d3.format(".2s"));
-
-	var svg = d3.select("#"+idDiv).append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-	x0.domain(dataset.map(function(d) { return d.library; }));
-	x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
-	y.domain([0, 100]);
+	x0.domain(properties.dataset.map(function(d) { return d.library; }));
+	x1.domain(properties.options).rangeRoundBands([0, x0.rangeBand()]);
+	y.domain([0, max]);
 
 	svg.append("g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis);
+	.attr("class", "x axis")
+	.attr("transform", "translate(0," + height + ")")
+	.call(xAxis);
 
 	svg.append("g")
-		.attr("class", "y axis")
-		.call(yAxis)
-		.append("text")
-		.attr("transform", "rotate(-90)")
-		.attr("y", 3)
-		.attr("dy", "-3em")
-		.style("text-anchor", "end")
-		.style("font-size", "11px")
-		.text(labelY);
+	.attr("class", "y axis")
+	.call(yAxis)
+	.append("text")
+	.attr("transform", "rotate(-90)")
+	.attr("y", 3)
+	.attr("dy", "-3em")
+	.style("text-anchor", "end")
+	.style("font-size", "11px")
+	.text(properties.labelY);
 
-	var barChart = svg.selectAll(".bar")
-		.data(dataset)
-		.enter().append("g")
-		.attr("class", "rect")
-		.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; });
+	var barChart = updateBarChart(svg, properties, x0, x1, y);
 
-	barChart.selectAll("rect")
-		.data(function(d) { return d.val; })
-		.enter().append("rect")
-		.attr("width", x1.rangeBand())
-		.attr("x", function(d) { return x1(d.name); })
-		.attr("y", function(d) { return y(d.value); })
-		.attr("value", function(d){return d.name;})
-		.attr("height", function(d) { return height - y(d.value); })
-		.style("fill", function(d) { return color(d.name); });
-
-	if(containsLegend){
-		createLegend(svg, options, width);
+	if(properties.containsLegend){
+		createLegend(svg, properties.options, properties.width);
 	}
 
 	return barChart;
 }
+
 
 
 /**
@@ -133,9 +159,10 @@ function createDataFormatChartI(data){
 	var cols = [];
 	data.map(function(line, i){
 		var value = line;
+		var use = (Number( line['total_internal_interfaces_usage_percentage']));
 		var col = {
 			"library": line['name'],
-			"Interfaces Internas": (Number( line['total_internal_interfaces_usage_percentage']))
+			"Interfaces Internas": use,
 		};
 		cols.push(col);
 	});
@@ -156,22 +183,6 @@ function createDataFormatChartII(data){
 			"library": line['name'],
 			"Interfaces Internas": (Number(line['total_internal_interfaces_usage_percentage'])),
 			"Interfaces Públicas": (Number(line['total_public_interfaces_usage_percentage']))
-		};
-		cols.push(col);
-	});
-	return cols;
-}
-
-/**
- * Formata os dados para o segundo gráfico de barras. Visualização do uso das Interfaces Internas.
- */
-function createDataFormatChartI(data){
-	var cols = [];
-	data.map(function(line, i){
-		var value = line;
-		var col = {
-			"library": line['name'],
-			"Interfaces Internas": (Number(line['total_internal_interfaces_usage_percentage']))
 		};
 		cols.push(col);
 	});
@@ -213,16 +224,57 @@ function createHtmlToolTipBarChartII(title, d, data){
 	return html;
 }
 
+/**
+ * Cria o toolTip para os gráficos de barra.
+ * @param  {[type]} chart [gráfico]
+ * @param  {[type]} data  [dados]
+ * @param  {[type]} type  [tipo de gráfico]
+ */
+function createToolTipBarChar(chart, data, type){
+	var toolTip = d3.select("body").append("div").attr("class", "toolTip");
+	chart.on("mousemove", function(d){
+		toolTip.style("left", d3.event.pageX+10+"px");
+		toolTip.style("top", d3.event.pageY-25+"px");
+		toolTip.style("display", "inline-block");
+		var html = (type == 1) ? createHtmlToolTipBarChartI(d.library, d, data) : reateHtmlToolTipBarChartII(d.library, d, data);
+		toolTip.html(html);
+	});
+	chart.on("mouseout", function(d){
+		toolTip.style("display", "none");
+	});
+}
+
+function initBarChartI(data){
+	dataChartI = data;
+	createBarCharI(data);
+}
+
+
+function updateBarCharI(listLibs){
+	var data = [];
+	dataChartI.forEach(function(d) {
+		if(listLibs.indexOf(d.name) != -1){
+			data.push(d);
+		}
+	});
+	createBarCharI(data);
+}
 
 /**
  * Criar gráfico de barras do percentual de uso das interfaces internas (1º gráfico).
  */
-function createBarCharUseInternalInterface(data){
+function createBarCharI(data){
 	if(data){
-		var idDiv = "chart1-area";
-		var labelY = 'Interfaces Internas Usadas (%)';
-		var options = ["Interfaces Internas"];
-		var barChart = createBarChart(idDiv, createDataFormatChartI(data), labelY, 1.02, false, options);
+		//Seta propriedades
+		var properties  = {};
+		properties.div = 'chart1-area';
+		properties.dataset = createDataFormatChartI(data);
+		properties.options = ["Interfaces Internas"];
+		properties.labelY = 'Interfaces Internas Usadas (%)';
+		properties.width = (window.innerWidth/1.02);
+		properties.containsLegend = false;
+
+		var barChart = createBarChart(properties);
 		createToolTipBarChar(barChart, data, 1);
 	}
 }
@@ -230,10 +282,18 @@ function createBarCharUseInternalInterface(data){
 /**
  * Cria gráfico de barra das interfaces públicas e internas das bibliotecas Mockito e JUnit.
  */
-function createBarCharPublicAndInternalInterface(data){
-	var idDiv = "chart4-area-plot";
-	var labelY = 'Interfaces Usadas (%)';
-	var options = ["Interfaces Internas", "Interfaces Públicas"];
-	var barChart = createBarChart(idDiv, createDataFormatChartII(data), labelY, 2, true, options);
-	createToolTipBarChar(barChart, data, 2);
+function createBarCharII(data){
+	if(data){
+		//Seta propriedades
+		var properties  = {};
+		properties.div = 'chart4-area-plot';
+		properties.dataset = createDataFormatChartII(data);
+		properties.options = ["Interfaces Internas", "Interfaces Públicas"];
+		properties.labelY = 'Interfaces Usadas (%)';
+		properties.width = (window.innerWidth/2);
+		properties.containsLegend = true;
+
+		var barChart = createBarChart(properties);
+		createToolTipBarChar(barChart, data, 1);
+	}
 }
