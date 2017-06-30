@@ -254,8 +254,8 @@ function createHtmlToolTipBarChartII(title, d, data){
 	var html = "<center><b>" + title + "</b></center><br><table>";
 	data.forEach(function(d){
 		if(title === d.name){
-			var totalInternal = Number(d.total_public_interfaces);
-			var totalPublic = Number(d.total_internal_interfaces);
+			var totalPublic= Number(d.total_public_interfaces);
+			var totalInternal = Number(d.total_internal_interfaces);
 			var total = totalInternal + totalPublic;
 			html += "<tr align='left'><td>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
 			html += "<tr align='left'><td>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
