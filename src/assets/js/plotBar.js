@@ -233,12 +233,12 @@ function createDataFormatChartII(data){
  * @param  @param  {[map]} data     [map com os dados] = [key, value]
  */
 function createHtmlToolTipBarChartI(title, d, data){
-	var html = "<center><b>" + title + "</b></center><table>";
+	var html = "<center><b>" + title + "</b></center><br><table>";
 	data.forEach(function(d){
 		if(title === d.name){
-			html += "<tr align='left'><td>Clientes:   </td><td>" + Number(d.number_clients).toLocaleString() + "</td></tr>"
-			html += "<tr align='left'><td>APIs Internas:   </td><td>" + Number(d.total_internal_interfaces).toLocaleString() + "</td></tr>"
-			html += "<tr align='left'><td>APIs Internas Usadas:   </td><td>" + Number(d.total_internal_interfaces_usage).toLocaleString() + " (" + d.total_internal_interfaces_usage_percentage + "%)</td></tr>"
+			html += "<tr align='left'><td>" + Number(d.number_clients).toLocaleString() + "</td><td>&emsp;clientes</td></tr>"
+			html += "<tr align='left'><td>" + Number(d.total_internal_interfaces).toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + d.total_internal_interfaces_usage_percentage + "%)</td></tr>"
 		}
 	})
 	html += "</table>";
@@ -251,11 +251,15 @@ function createHtmlToolTipBarChartI(title, d, data){
  * @param  @param  {[map]} data     [map com os dados] = [key, value]
  */
 function createHtmlToolTipBarChartII(title, d, data){
-	var html = "<center><b>" + title + "</b></center><table>";
+	var html = "<center><b>" + title + "</b></center><br><table>";
 	data.forEach(function(d){
 		if(title === d.name){
-			html += "<tr align='left'><td>Total Interfaces Internas:   </td><td>" + Number(d.total_public_interfaces).toLocaleString() + "</td></tr>"
-			html += "<tr align='left'><td>Total Interfaces Públicas:   </td><td>" + Number(d.total_internal_interfaces).toLocaleString() + "</td></tr>"
+			var totalInternal = Number(d.total_public_interfaces);
+			var totalPublic = Number(d.total_internal_interfaces);
+			var total = totalInternal + totalPublic;
+			html += "<tr align='left'><td>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
+			html += "<tr align='left'><td>" + total + "</td><td>&emsp;interfaces</td></tr>"
 		}
 	});
 	html += "</table>";
@@ -274,7 +278,7 @@ function createToolTipBarChar(chart, data, type){
 		toolTip.style("left", d3.event.pageX+10+"px");
 		toolTip.style("top", d3.event.pageY-25+"px");
 		toolTip.style("display", "inline-block");
-		var html = (type == 1) ? createHtmlToolTipBarChartI(d.library, d, data) : reateHtmlToolTipBarChartII(d.library, d, data);
+		var html = (type == 1) ? createHtmlToolTipBarChartI(d.library, d, data) : createHtmlToolTipBarChartII(d.library, d, data);
 		toolTip.html(html);
 	});
 	chart.on("mouseout", function(d){
@@ -336,6 +340,6 @@ function createBarCharII(data){
 		properties.type = 2;
 
 		var barChart = createBarChart(properties);
-		createToolTipBarChar(barChart, data, 1);
+		createToolTipBarChar(barChart, data, 2);
 	}
 }
