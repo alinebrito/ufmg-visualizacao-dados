@@ -7,8 +7,7 @@ var margin = {top: 10, right: 20, bottom: 20, left: 60};
 var width = - margin.left - margin.right - 40;
 var height = 200 - margin.top - margin.bottom;
 
-// Escala de cores.
-var color = d3.scale.category20();
+
 
 //Dados originais dos gráficos.
 var dataChartI = null;
@@ -20,22 +19,22 @@ var dataChartI = null;
  * @param  {[type]} width   [description]
  * @return {[type]}         [description]
  */
-function createLegend(svg, options, width){
+function createLegend(svg, properties){
 
 	var legend = svg.selectAll(".legend")
-	.data(options.slice())
+	.data(properties.options.slice())
 	.enter().append("g")
 	.attr("class", "legend")
 	.attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });
 
 	legend.append("rect")
-	.attr("x", width - 18)
+	.attr("x", properties.width - 18)
 	.attr("width", 18)
 	.attr("height", 18)
-	.style("fill", color);
+	.style("fill", properties.color);
 
 	legend.append("text")
-	.attr("x", width - 24)
+	.attr("x", properties.width - 24)
 	.attr("y", 9)
 	.attr("dy", ".35em")
 	.style("text-anchor", "end")
@@ -46,7 +45,7 @@ function createLegend(svg, options, width){
 
 function updateBarChart(svg, properties, x0, x1, y){
 
-	var color = d3.scale.category20();
+	var color = properties.color;
 
 	var barChart = svg.selectAll(".bar")
 	.data(properties.dataset);
@@ -143,7 +142,7 @@ function createBarChart(properties){
 	var barChart = updateBarChart(svg, properties, x0, x1, y);
 
 	if(properties.containsLegend){
-		createLegend(svg, properties.options, properties.width);
+		createLegend(svg, properties);
 	}
 
 	return barChart;
@@ -272,6 +271,7 @@ function createBarCharI(data){
 		properties.labelY = 'Interfaces Internas Usadas (%)';
 		properties.width = data.length * 110; //100px para cada barra.
 		properties.containsLegend = false;
+		properties.color = d3.scale.category20();
 
 		var barChart = createBarChart(properties);
 		createToolTipBarChar(barChart, data, 1);
@@ -291,6 +291,7 @@ function createBarCharII(data){
 		properties.labelY = 'Interfaces Usadas (%)';
 		properties.width = (window.innerWidth/2);
 		properties.containsLegend = true;
+		properties.color = d3.scale.category10();
 
 		var barChart = createBarChart(properties);
 		createToolTipBarChar(barChart, data, 1);

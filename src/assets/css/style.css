@@ -1,6 +1,12 @@
+#refresh-btn {
+  float: right;
+  font-size: 12px;
+  border-radius: 0;
+}
+
 .logo {
-	max-width:130px;
-	margin-top: 16px;
+  max-width:130px;
+  margin-top: 16px;
 }
 
 .top-margin {
@@ -11,102 +17,88 @@
   text-align: center;
 }
 
-#refresh-btn {
-    float: right;
-    font-size: 12px;
-    border-radius: 0;
-}
-
-@media (min-width: 768px){
 .circle-tile {
-    margin-bottom: 30px;
-}
-}
-
-.circle-tile {
-    margin-bottom: 15px;
-    text-align: center;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .circle-tile-heading {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto -40px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-radius: 100%;
-    color: #fff;
-    transition: all ease-in-out .3s;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto -40px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 100%;
+  color: #fff;
+  transition: all ease-in-out .3s;
 }
 
 .dark-blue {
-    background-color: #34495e;
+  background-color: #34495e;
 }
 
-
 .text-dark-blue {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .circle-tile-heading .fa {
-    line-height: 80px;
+  line-height: 80px;
 }
 
 .circle-tile-content {
-    padding-top: 50px;
+  padding-top: 50px;
 }
 .circle-tile-description {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .text-faded {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .circle-tile-number {
-    padding: 5px 0 15px;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1;
+  padding: 5px 0 15px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .circle-tile-footer {
-    display: block;
-    padding: 5px;
-    color: rgba(255,255,255,0.5);
-    background-color: rgba(0,0,0,0.1);
-    transition: all ease-in-out .3s;
+  display: block;
+  padding: 5px;
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.1);
+  transition: all ease-in-out .3s;
 }
 
 .circle-tile-footer:hover {
-    text-decoration: none;
-    color: rgba(255,255,255,0.5);
-    background-color: rgba(0,0,0,0.2);
+  text-decoration: none;
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.2);
 }
 
-
 .toolTip {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: absolute;
-    display: table;
-    background: none repeat scroll 0 0 white;
-    border: 0 none;
-    border-radius: 8px 8px 8px 8px;
-    box-shadow: -3px 3px 15px #888888;
-    color: black;
-    font: 14px sans-serif;
-    font-size: 14px;
-    padding: 5px;
-    text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  display: table;
+  background: none repeat scroll 0 0 white;
+  border: 0 none;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: -3px 3px 15px #888888;
+  color: black;
+  font: 14px sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
 }
 
 .legend {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
 }
 
 .jumbotron {
-   text-align: center;
+ text-align: center;
 }  
 
 .visualization {
@@ -167,14 +159,14 @@
   display: block;
 }
 
-#chart1-area-plot{
-    display: block;
-    width: 100%;
-    height: 100%;
+#chart1-area-plot, #chart22-area-plot{
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .inner {
-    width: 100%;
+  width: 100%;
 }
 
 .outer {
