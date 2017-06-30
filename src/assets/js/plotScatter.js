@@ -8,7 +8,7 @@ var dataScatter = null;
  * Formata o texto do tooltip do ponto.
  */
 function createHtmlToolTipDot(d){
-	var html = d["api"] + "<br/> (" + d.usage.toFixed(2) + "%)";
+	var html = "<b>" + d["api"] + "</b><br/><br/> Usada por " + d.usage.toFixed(1) + "% dos clientes";
 	return html;
 }
 
@@ -53,8 +53,8 @@ function createScatter(properties){
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Adiciona Tooltip
-	var tooltip = d3.select("body").append("div")
-	.attr("class", "tooltip")
+	var toolTip = d3.select("body").append("div")
+	.attr("class", "toolTip")
 	.style("opacity", 0);
 
 	//Configura Eixos
@@ -101,20 +101,22 @@ function createScatter(properties){
 	.data(properties.dataset)
 	.enter().append("circle")
 	.attr("class", "dot")
-	.attr("r", function(d) { return d.usage + 1.7; })//raio do ponto, proporcional a sua popularidade.
+	.attr("r", function(d) { return d.usage * 2; })//raio do ponto, proporcional a sua popularidade.
 	.attr("cx", function(d) {return x0(d.library) + ramdomPoint(30)}) //ramdom para exibir pontos em volta do eixo principal.
 	.attr("cy", function(d) { return y(d.usage); })
 	.style("fill", function(d) {return color(x0(d.library));})  //cor do ponto
 	.on("mouseover", function(d) {
-		tooltip.transition()
+		toolTip.transition()
 		.duration(200)
 		.style("opacity", 1);
-		tooltip.html(createHtmlToolTipDot(d))
+		toolTip.style("display", "inline-block");
+		toolTip.html(createHtmlToolTipDot(d))
 		.style("left", (d3.event.pageX + 5) + "px")
 		.style("top", (d3.event.pageY - 28) + "px");
+
 	})
 	.on("mouseout", function(d) {
-		tooltip.transition()
+		toolTip.transition()
 		.duration(500)
 		.style("opacity", 0);
 	});

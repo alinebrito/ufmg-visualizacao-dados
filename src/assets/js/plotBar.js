@@ -236,9 +236,9 @@ function createHtmlToolTipBarChartI(title, d, data){
 	var html = "<center><b>" + title + "</b></center><br><table>";
 	data.forEach(function(d){
 		if(title === d.name){
-			html += "<tr align='left'><td>" + Number(d.number_clients).toLocaleString() + "</td><td>&emsp;clientes</td></tr>"
-			html += "<tr align='left'><td>" + Number(d.total_internal_interfaces).toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + d.total_internal_interfaces_usage_percentage + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.number_clients).toLocaleString() + "</td><td>&emsp;clientes</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces).toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + d.total_internal_interfaces_usage_percentage + "%)</td></tr>"
 		}
 	})
 	html += "</table>";
@@ -252,17 +252,27 @@ function createHtmlToolTipBarChartI(title, d, data){
  */
 function createHtmlToolTipBarChartII(title, d, data){
 	var html = "<center><b>" + title + "</b></center><br><table>";
+	var total = 0;
 	data.forEach(function(d){
 		if(title === d.name){
-			var totalPublic= Number(d.total_public_interfaces);
+
+			var totalPublic = Number(d.total_public_interfaces);
+			var totalPublicUsage = Number(d.total_public_interfaces_usage);
+			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
+
 			var totalInternal = Number(d.total_internal_interfaces);
-			var total = totalInternal + totalPublic;
-			html += "<tr align='left'><td>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
-			html += "<tr align='left'><td>" + total + "</td><td>&emsp;interfaces</td></tr>"
+			var totalInternalUsage = Number(d.total_internal_interfaces_usage);
+			var totalInternalUsagePercent = Number(d.total_internal_interfaces_usage_percentage);
+
+			total = totalInternal + totalPublic;
+
+			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
 		}
 	});
-	html += "</table>";
+	html += "</table><center><br><b>" + total + " interfaces</b></center>";
 	return html;
 }
 
