@@ -32,7 +32,7 @@ function ramdomPoint(value){
  * @param  {[string]} idDiv [id da div onde o gráfico será criado.]
  * @param  {[map]} data  [dados do gráfico.]
  */
-function createScatterChart(properties){
+function createScatter(properties){
 
 	var margin = {top: 5, right: 20, bottom: 20, left: 50};
 	var width = properties.width - margin.left - margin.right - 400;
@@ -40,7 +40,6 @@ function createScatterChart(properties){
 
 	// Escala de cor.
 	color = d3.scale.category20();
-
 
 	d3.select("#" + properties.div + "-svg").remove();
 
@@ -75,7 +74,6 @@ function createScatterChart(properties){
 	.tickFormat(d3.format(".2s"));
 
 	var max = d3.max(properties.dataset, function(d) { return +d.usage;});
-	console.log(max);
 	//Cada grupo/coluna representa uma biblioteca.
 	x0.domain(properties.dataset.map(function(d) { return d.library; }));
 	y.domain([0, max + max/2]);
@@ -123,7 +121,6 @@ function createScatterChart(properties){
 
 }
 
-
 /**
  * Formata os dados para o Scatter Plot.
  */
@@ -135,7 +132,6 @@ function createDataFormatScatterPlot(data){
 	return data;
 }
 
-
 function updateScatterPlot(listLibs){
 	var data = [];
 	dataScatter.forEach(function(d) {
@@ -145,7 +141,6 @@ function updateScatterPlot(listLibs){
 	});
 	createScatterPlot(data, listLibs);
 }
-
 
 /**
  * Cria o Scatter Plot na respectiva div.
@@ -157,10 +152,9 @@ function createScatterPlot(data, listLibs){
   	properties.dataset = createDataFormatScatterPlot(data);
   	properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth;
   	properties.labelY = 'Uso da Interface Interna (%)';
-    var chart = createScatterChart(properties);
+    var chart = createScatter(properties);
   }
 }
-
 
 function initScatterPlot(data){
 	dataScatter = data;

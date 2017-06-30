@@ -2,31 +2,33 @@
  * Script para criar os gráficos de BoxPlot.
  */
 
-
+var dataBoxPlot;
 
 /**
  * Função para criar os BoxPlot. 
- * Fonte: http://bl.ocks.org/jensgrubert/7789216
+ * Adaptado de: http://bl.ocks.org/jensgrubert/7789216
+ * Incluído function setX, color, ajustes dos metadados, box plot com cores diferentes.
  */
 (function() {
 	d3.box = function() {
-		var width = 1,
-		height = 1,
-		duration = 0,
-		domain = null,
-		value = Number,
-		whiskers = boxWhiskers,
-		quartiles = boxQuartiles,
-		showLabels = true,
-		numBars = 4,
-		curBar = 1,
-		tickFormat = null;
+		var width = 1;
+		var height = 1;
+		var duration = 0;
+		var domain = null;
+		var value = Number;
+		var whiskers = boxWhiskers;
+		var quartiles = boxQuartiles;
+		var showLabels = true;
+		var numBars = 4;
+		var curBar = 1;
+		var tickFormat = null;
+		var x = null;
+		var color = d3.scale.category20(); // cor dos box plot.
 
 		function box(g) {
+
 			g.each(function(data, i) {
-
 				var d = data[1].sort(d3.ascending);
-
 				var g = d3.select(this),
 				n = d.length,
 				min = d[0],
@@ -44,258 +46,279 @@
 
 				// Configura escala do eixo X.
 				var x1 = d3.scale.linear()
-					.domain(domain && domain.call(this, d, i) || [min, max])
-					.range([height, 0]);
+				.domain(domain && domain.call(this, d, i) || [min, max])
+				.range([height, 0]);
+
 				var x0 = this.__chart__ || d3.scale.linear()
-					.domain([0, Infinity])
-					.range(x1.range());
+				.domain([0, Infinity])
+				.range(x1.range());
 
 				// Set a nova escala.
 				this.__chart__ = x1;
 
 				//Linha central do box plot (entre os "bigodes")
 				var center = g.selectAll("line.center")
-					.data(whiskerData ? [whiskerData] : []);
+				.data(whiskerData ? [whiskerData] : []);
 
 				//Adiciona linha vertical.
 				center.enter().insert("line", "rect")
-					.attr("class", "center")
-					.attr("x1", width / 2)
-					.attr("y1", function(d) { return x0(d[0]); })
-					.attr("x2", width / 2)
-					.attr("y2", function(d) { return x0(d[1]); })
-					.style("opacity", 1e-6)
-					.transition()
-					.duration(duration)
-					.style("opacity", 1)
-					.attr("y1", function(d) { return x1(d[0]); })
-					.attr("y2", function(d) { return x1(d[1]); });
+				.attr("class", "center")
+				.attr("x1", width / 2)
+				.attr("y1", function(d) { return x0(d[0]); })
+				.attr("x2", width / 2)
+				.attr("y2", function(d) { return x0(d[1]); })
+				.style("opacity", 1e-6)
+				.transition()
+				.duration(duration)
+				.style("opacity", 1)
+				.attr("y1", function(d) { return x1(d[0]); })
+				.attr("y2", function(d) { return x1(d[1]); });
 
 				center.transition()
-					.duration(duration)
-					.style("opacity", 1)
-					.attr("y1", function(d) { return x1(d[0]); })
-					.attr("y2", function(d) { return x1(d[1]); });
+				.duration(duration)
+				.style("opacity", 1)
+				.attr("y1", function(d) { return x1(d[0]); })
+				.attr("y2", function(d) { return x1(d[1]); });
 
 				center.exit().transition()
-					.duration(duration)
-					.style("opacity", 1e-6)
-					.attr("y1", function(d) { return x1(d[0]); })
-					.attr("y2", function(d) { return x1(d[1]); })
-					.remove();
+				.duration(duration)
+				.style("opacity", 1e-6)
+				.attr("y1", function(d) { return x1(d[0]); })
+				.attr("y2", function(d) { return x1(d[1]); })
+				.remove();
 
 				//Configura e adiciona caixa do boxplot.
 				var box = g.selectAll("rect.box")
-					.data([quartileData]);
+				.data([quartileData]);
 
 				box.enter().append("rect")
-					.attr("class", "box")
-					.attr("x", 0)
-					.attr("y", function(d) { return x0(d[2]); })
-					.attr("width", width)
-					.attr("height", function(d) { return x0(d[0]) - x0(d[2]); })
-					.transition()
-					.duration(duration)
-					.attr("y", function(d) { return x1(d[2]); })
-					.attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
+				.style("fill", function(d) {return color(x(data[0]));}) // cor das caixas.
+				.attr("class", "box")
+				.attr("x", 0)
+				.attr("y", function(d) { return x0(d[2]); })
+				.attr("width", width)
+				.attr("height", function(d) { return x0(d[0]) - x0(d[2]); })
+				.transition()
+				.duration(duration)
+				.attr("y", function(d) { return x1(d[2]); })
+				.attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
 
 				box.transition()
-					.duration(duration)
-					.attr("y", function(d) { return x1(d[2]); })
-					.attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
+				.duration(duration)
+				.attr("y", function(d) { return x1(d[2]); })
+				.attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
 
 				//Configura e adiciona a linha da mediana.
 				var medianLine = g.selectAll("line.median")
-					.data([quartileData[1]]);
+				.data([quartileData[1]]);
 
 				medianLine.enter().append("line")
-					.attr("class", "median")
-					.attr("x1", 0)
-					.attr("y1", x0)
-					.attr("x2", width)
-					.attr("y2", x0)
-					.transition()
-					.duration(duration)
-					.attr("y1", x1)
-					.attr("y2", x1);
+				.attr("class", "median")
+				.attr("x1", 0)
+				.attr("y1", x0)
+				.attr("x2", width)
+				.attr("y2", x0)
+				.transition()
+				.duration(duration)
+				.attr("y1", x1)
+				.attr("y2", x1);
 
 				medianLine.transition()
-					.duration(duration)
-					.attr("y1", x1)
-					.attr("y2", x1);
+				.duration(duration)
+				.attr("y1", x1)
+				.attr("y2", x1);
 
 				//Atualiza os "bigodes"
 				var whisker = g.selectAll("line.whisker")
-					.data(whiskerData || []);
+				.data(whiskerData || []);
 
 				whisker.enter().insert("line", "circle, text")
-					.attr("class", "whisker")
-					.attr("x1", 0)
-					.attr("y1", x0)
-					.attr("x2", 0 + width)
-					.attr("y2", x0)
-					.style("opacity", 1e-6)
-					.transition()
-					.duration(duration)
-					.attr("y1", x1)
-					.attr("y2", x1)
-					.style("opacity", 1);
+				.attr("class", "whisker")
+				.attr("x1", 0)
+				.attr("y1", x0)
+				.attr("x2", 0 + width)
+				.attr("y2", x0)
+				.style("opacity", 1e-6)
+				.transition()
+				.duration(duration)
+				.attr("y1", x1)
+				.attr("y2", x1)
+				.style("opacity", 1);
 
 				whisker.transition()
-					.duration(duration)
-					.attr("y1", x1)
-					.attr("y2", x1)
-					.style("opacity", 1);
+				.duration(duration)
+				.attr("y1", x1)
+				.attr("y2", x1)
+				.style("opacity", 1);
 
 				whisker.exit().transition()
-					.duration(duration)
-					.attr("y1", x1)
-					.attr("y2", x1)
-					.style("opacity", 1e-6)
-					.remove();
+				.duration(duration)
+				.attr("y1", x1)
+				.attr("y2", x1)
+				.style("opacity", 1e-6)
+				.remove();
 
 				// Atualiza os outliers.
 				var outlier = g.selectAll("circle.outlier")
-					.data(outlierIndices, Number);
+				.data(outlierIndices, Number);
 
 				outlier.enter().insert("circle", "text")
-					.attr("class", "outlier")
-					.attr("r", 5)
-					.attr("cx", width / 2)
-					.attr("cy", function(i) { return x0(d[i]); })
-					.style("opacity", 1e-6)
-					.transition()
-					.duration(duration)
-					.attr("cy", function(i) { return x1(d[i]); })
-					.style("opacity", 1);
+				.style("fill", '#FFFFFF') // cor dos círculos/outliers, branco.
+				.attr("class", "outlier")
+				.attr("r", 5)
+				.attr("cx", width / 2)
+				.attr("cy", function(i) { return x0(d[i]); })
+				.style("opacity", 1e-6)
+				.transition()
+				.duration(duration)
+				.attr("cy", function(i) { return x1(d[i]); })
+				.style("opacity", 1);
 
 				outlier.transition()
-					.duration(duration)
-					.attr("cy", function(i) { return x1(d[i]); })
-					.style("opacity", 1);
+				.duration(duration)
+				.attr("cy", function(i) { return x1(d[i]); })
+				.style("opacity", 1);
 
 				outlier.exit().transition()
-					.duration(duration)
-					.attr("cy", function(i) { return x1(d[i]); })
-					.style("opacity", 1e-6)
-					.remove();
+				.duration(duration)
+				.attr("cy", function(i) { return x1(d[i]); })
+				.style("opacity", 1e-6)
+				.remove();
 
 				//Calcula o forma dos ticks
 				var format = tickFormat || x1.tickFormat(8);
 
 				// Atualiza os boxTicks.
 				var boxTick = g.selectAll("text.box")
-					.data(quartileData);
+				.data(quartileData);
+
 				if(showLabels == true) {
 					boxTick.enter().append("text")
-						.attr("class", "box")
-						.attr("dy", ".3em")
-						.attr("dx", function(d, i) { return i & 1 ? 6 : -6 })
-						.attr("x", function(d, i) { return i & 1 ?  + width : 0 })
-						.attr("y", x0)
-						.attr("text-anchor", function(d, i) { return i & 1 ? "start" : "end"; })
-						.text(format)
-						.transition()
-						.duration(duration)
-						.attr("y", x1);
+					.attr("class", "box")
+					.attr("dy", ".3em")
+					.attr("dx", function(d, i) { return i & 1 ? 6 : -6 })
+					.attr("x", function(d, i) { return i & 1 ?  + width : 0 })
+					.attr("y", x0)
+					.attr("text-anchor", function(d, i) { return i & 1 ? "start" : "end"; })
+					.text(format)
+					.transition()
+					.duration(duration)
+					.attr("y", x1);
 				}	
 
 				boxTick.transition()
-					.duration(duration)
-					.text(format)
-					.attr("y", x1);
+				.duration(duration)
+				.text(format)
+				.attr("y", x1);
 
 				// Atualiza ticks. 
 				var whiskerTick = g.selectAll("text.whisker")
 					.data(whiskerData || []);
 				if(showLabels == true) {
 					whiskerTick.enter().append("text")
-						.attr("class", "whisker")
-						.attr("dy", ".3em")
-						.attr("dx", 6)
-						.attr("x", width)
-						.attr("y", x0)
-						.text(format)
-						.style("opacity", 1e-6)
-						.transition()
-						.duration(duration)
-						.attr("y", x1)
-						.style("opacity", 1);
-				}
-				whiskerTick.transition()
-					.duration(duration)
+					.attr("class", "whisker")
+					.attr("dy", ".3em")
+					.attr("dx", 6)
+					.attr("x", width)
+					.attr("y", x0)
 					.text(format)
+					.style("opacity", 1e-6)
+					.transition()
+					.duration(duration)
 					.attr("y", x1)
 					.style("opacity", 1);
+				}
+				whiskerTick.transition()
+				.duration(duration)
+				.text(format)
+				.attr("y", x1)
+				.style("opacity", 1);
 
 				whiskerTick.exit().transition()
-					.duration(duration)
-					.attr("y", x1)
-					.style("opacity", 1e-6)
-					.remove();
+				.duration(duration)
+				.attr("y", x1)
+				.style("opacity", 1e-6)
+				.remove();
 			});
 			d3.timer.flush();
 		}
 
 		box.width = function(x) {
-			if (!arguments.length) 
+			if(!arguments.length){
 				return width;
+			} 
 			width = x;
 			return box;
 		};
 
 		box.height = function(x) {
-			if (!arguments.length) 
+			if(!arguments.length){
 				return height;
+			}
 			height = x;
 			return box;
 		};
 
 		box.tickFormat = function(x) {
-			if (!arguments.length) 
+			if(!arguments.length){
 				return tickFormat;
+			}
 			tickFormat = x;
 			return box;
 		};
 
 		box.duration = function(x) {
-			if (!arguments.length) 
+			if(!arguments.length){
 				return duration;
+			} 
 			duration = x;
 			return box;
 		};
 
 		box.domain = function(x) {
-			if (!arguments.length) 
+			if(!arguments.length) 
 				return domain;
-			domain = x == null ? x : d3.functor(x);
+			domain = (x == null) ? x : d3.functor(x);
+			return box;
+		};
+
+		//Seta escala X com nome das bibliotecas.
+		//Utilizado na configraçãod as cores dos boxPlot.
+		box.setX = function(value) {
+			if(!arguments.length) 
+				return domain;
+			x = value;
 			return box;
 		};
 
 		box.value = function(x) {
-			if (!arguments.length) 
+			if (!arguments.length){
 				return value;
+			} 
 			value = x;
 			return box;
 		};
 
 		box.whiskers = function(x) {
-			if (!arguments.length) 
+			if (!arguments.length){ 
 				return whiskers;
+			} 
 			whiskers = x;
 			return box;
 		};
 
 		box.showLabels = function(x) {
-			if (!arguments.length) 
+			if (!arguments.length){
 				return showLabels;
+			} 
 			showLabels = x;
 			return box;
 		};
 
 		box.quartiles = function(x) {
-			if (!arguments.length) 
+			if (!arguments.length){
 				return quartiles;
+			}
 			quartiles = x;
 			return box;
 		};
@@ -348,33 +371,25 @@ function createDataFormatBoxPlot(csv){
  * @param  {[String]} idDiv [id da div onde o gráfico será criado]
  * @param  {[map]} data  [metadados do gráfico]
  */
-function createBoxPlot(idDiv, data){
+function createBoxPlot(properties){
 
 	var labels = true; // mostrar os labels ao lado de cada boxplot.
-	var margin = {top: 10, right: 20, bottom: 20, left: 60};
-	var width = window.innerWidth - margin.left - margin.right - 400;
+	var margin = {top: 10, right: 20, bottom: 40, left: 60};
+	var width = properties.width - margin.left - margin.right - 400;
 	var height = 200 - margin.top - margin.bottom;
-
-
 	var min = 0;
-	var max = 2.5;
+	var max = 0;
+	
+	//Calcula limite do eixo Y.
+	properties.dataset.forEach(	function(d) { 
+		var maxOption = d3.max(d[1], function(val) { return +val;});
+		max = (maxOption > max) ? maxOption : max;
+	});
 
-	var chart = d3.box()
-		.whiskers(iqr(1.5))
-		.height(height)	
-		.domain([min, max])
-		.showLabels(labels);
-
-	var svg = d3.select("#" + idDiv).append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-		.attr("class", "box")    
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// Configura eixo X.
 	var x = d3.scale.ordinal()	   
-		.domain( data.map(function(d) { return d[0] } ) )	    
+		.domain(properties.dataset.map(function(d) { return d[0] } ) )	    
 		.rangeRoundBands([0 , width], 0.7, 0.3); 		
 
 	var xAxis = d3.svg.axis()
@@ -390,9 +405,26 @@ function createBoxPlot(idDiv, data){
 		.scale(y)
 		.orient("left");
 
+	var chart = d3.box()
+		.setX(x)
+		.whiskers(iqr(1.5))
+		.height(height)	
+		.domain([min, max])
+		.showLabels(labels);
+
+	d3.select("#" + properties.div + "-svg").remove();
+
+	var svg = d3.select("#" + properties.div).append("svg")
+	.attr("id", properties.div + "-svg")
+	.attr("width", width + margin.left + margin.right)
+	.attr("height", height + margin.top + margin.bottom)
+	.attr("class", "box")    
+	.append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 	//Desenha os boxplots	
 	svg.selectAll(".box")	   
-		.data(data)
+		.data(properties.dataset)
 		.enter().append("g")
 		.attr("transform", function(d) { return "translate(" +  x(d[0])  + "," + margin.top + ")"; } )
 		.call(chart.width(x.rangeBand())); 
@@ -440,9 +472,32 @@ function createBoxPlot(idDiv, data){
 /**
  * Cria o box Plot na respectiva Div.
  */
-function createBoxPlotDistributionInternalInterface(data){
+function updateOrCreateBoxPlot(data, listLibs){
 	if(data){
-		var idDiv = "chart2-area";
-		createBoxPlot(idDiv, createDataFormatBoxPlot(data));
+		var properties = {};
+		properties.div = 'chart2-area';
+		properties.dataset = createDataFormatBoxPlot(data);
+		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth;
+		createBoxPlot(properties);
 	}
+}
+
+
+function updateBoxPlot(listLibs){
+	var data = [];
+	dataBoxPlot.forEach(function(d) {
+		var map = {};
+		listLibs.forEach(function(lib){
+			if(d[lib]){
+				map[lib] = Number(d[lib]);
+			}
+		});
+		data.push(map);
+	});
+	updateOrCreateBoxPlot(data, listLibs);
+}
+
+function initBoxPlot(data){
+	dataBoxPlot = data;
+	updateOrCreateBoxPlot(data);
 }

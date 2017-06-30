@@ -39,7 +39,7 @@ function readDataAndCreateScatterChart(){
 function readDataAndCreateBoxPlot(){
 	var file = '/data/data-use-internal-interface-all-libraries.csv';
 	d3.csv(file, function(error, data) {
-		createBoxPlotDistributionInternalInterface(data);
+		initBoxPlot(data);
 	});
 }
 

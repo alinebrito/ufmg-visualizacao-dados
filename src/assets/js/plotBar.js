@@ -249,7 +249,6 @@ function initBarChartI(data){
 	createBarCharI(data);
 }
 
-
 function updateBarCharI(listLibs){
 	var data = [];
 	dataChartI.forEach(function(d) {

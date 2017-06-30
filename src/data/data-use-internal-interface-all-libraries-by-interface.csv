@@ -689,4 +689,4 @@ org.openqa.selenium.internal.selenesedriver.NewSession,Selenium OpenQA,0.52
 org.openqa.selenium.internal.selenesedriver.SeleneseFunction,Selenium OpenQA,0.52
 org.openqa.selenium.internal.selenesedriver.SubmitElement,Selenium OpenQA,0.52
 org.openqa.selenium.internal.seleniumemulation.WaitForCondition,Selenium OpenQA,0.52
-org.openqa.selenium.remote.internal.CircularOutputStream,Selenium OpenQA,0.52
+org.openqa.selenium.remote.internal.CircularOutputStream,Selenium OpenQA,0.52	
