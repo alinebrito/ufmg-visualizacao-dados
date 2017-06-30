@@ -7,8 +7,6 @@ var margin = {top: 10, right: 20, bottom: 20, left: 60};
 var width = - margin.left - margin.right - 40;
 var height = 200 - margin.top - margin.bottom;
 
-
-
 //Dados originais dos gráficos.
 var dataChartI = null;
 
@@ -35,7 +33,7 @@ function createLegend(svg, properties){
 
 	legend.append("text")
 	.attr("x", properties.width - 24)
-	.attr("y", 9)
+	.attr("y", 15)
 	.attr("dy", ".35em")
 	.style("text-anchor", "end")
 	.text(function(d) {
@@ -43,38 +41,80 @@ function createLegend(svg, properties){
 	});
 }
 
+
 function updateBarChart(svg, properties, x0, x1, y){
 
-	var color = properties.color;
+	var c = properties.color;
 
 	var barChart = svg.selectAll(".bar")
 	.data(properties.dataset);
 
 	barChart.enter().append("g")
 	.attr("class", "rect")
-	.style("fill", function(d) {return color(x0(d.library));})
+	.style("fill", function(d, i) {return c(i); })
 	.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
 
-	barChart.exit().remove();
+	//barChart.exit().remove();
 
-	barChart.append("g")
-	.attr("class", "rect")
-	.style("fill", function(d) {return color(x0(d.library));})
-	.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
+	var g = barChart.append("g")
+	.attr("class", "rect");
 
-	barChart.selectAll("rect")
+	if(properties.type == 1){
+		c = d3.scale.category20();
+		g = g.style("fill", function(d) {return c(x0(d.library));})
+	}
+	g = g.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
+
+	barChart = barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
-	.enter().append("rect")
-	.attr("width", x1.rangeBand())
+	.enter().append("rect");
+
+	if(properties.type == 2){
+		c = d3.scale.category10();
+		barChart.style("fill", function(d) {return c(d.name); });
+	}
+
+	barChart.attr("width", x1.rangeBand())
 	.attr("x", function(d) { return x1(d.name); })
 	.attr("y", function(d) { return y(d.value); })
 	.attr("value", function(d){return d.name;})
-	.attr("height", function(d) { return height - y(d.value); });
+	.attr("height", function(d) { return height - y(d.value); })
 
 	return barChart;
 }
 
-//function createBarChart(idDiv, dataset, labelY, width, options, containsLegend){
+function updateBarChartBackup(svg, properties, x0, x1, y){
+
+	var color = properties.color;
+
+	var barChart = svg.selectAll(".bar")
+	.data(properties.dataset);
+
+	properties.data.forEach(function (data){
+
+		barChart.enter().append("g")
+		.attr("class", "rect")
+		.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
+
+		barChart.exit().remove();
+
+		barChart.append("g")
+		.attr("class", "rect")
+		.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
+
+		barChart.selectAll("rect")
+		.data(function(d) { return d.val; })
+		.enter().append("rect")
+		.attr("width", x1.rangeBand())
+		.attr("x", function(d) { return x1(d.name); })
+		.attr("y", function(d) { return y(d.value); })
+		.attr("value", function(d){return d.name;})
+		.attr("height", function(d) { return height - y(d.value); });
+
+		return barChart;
+	})
+}
+
 function createBarChart(properties){
  	
 	var max = 0; //Valor máximo do eixo Y.
@@ -107,9 +147,10 @@ function createBarChart(properties){
 		d.val = properties.options.map(function(name) {
 			var maxOption = d3.max(properties.dataset, function(d) { return +d[name];});
 			max = (maxOption > max) ? maxOption : max;
-			return {name: name, value: +d[name]};
+			return {name: name, value: +d[name], library: d.library};
 		});
 	});
+
 
 	d3.select("#" + properties.div + "-svg").remove();
 	var svg = d3.select("#" + properties.div).append("svg")
@@ -147,8 +188,6 @@ function createBarChart(properties){
 
 	return barChart;
 }
-
-
 
 /**
  * Formata os dados para o primeiro gráfico de barras.
@@ -272,6 +311,7 @@ function createBarCharI(data){
 		properties.width = data.length * 110; //100px para cada barra.
 		properties.containsLegend = false;
 		properties.color = d3.scale.category20();
+		properties.type = 1;
 
 		var barChart = createBarChart(properties);
 		createToolTipBarChar(barChart, data, 1);
@@ -289,9 +329,11 @@ function createBarCharII(data){
 		properties.dataset = createDataFormatChartII(data);
 		properties.options = ["Interfaces Internas", "Interfaces Públicas"];
 		properties.labelY = 'Interfaces Usadas (%)';
-		properties.width = (window.innerWidth/2);
-		properties.containsLegend = true;
+		properties.width = $("#chart4-area-plot").width() - 100;
+		properties.top = 600;
+		properties.containsLegend = false;
 		properties.color = d3.scale.category10();
+		properties.type = 2;
 
 		var barChart = createBarChart(properties);
 		createToolTipBarChar(barChart, data, 1);
