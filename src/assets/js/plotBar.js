@@ -46,31 +46,6 @@ function updateBarChart(svg, properties, x0, x1, y){
 
 	var c = properties.color;
 
-	//Adiciona caule da flor com o nome dos países. Label com o nome dos paíse é armazenado junto ao objeto (variável 'name').
- //  var label = svg
- //  .selectAll(".label")
- //  .data(properties.dataset);
-
- //  label.enter().append("g")
- //  .attr("class", "rect")
-
- // //  var g = label.append("g")
-	// // .attr("class", "rect");
-
-	// label = label.selectAll("rect")
-	// .data(function(d) { return d.val; })
-	// .enter().append("rect");
-
-
-	// label.append("text")
- //  .text('teste')
- //  .attr("class", "labelBar")
- //  .attr("font-size","12px")
- //  .attr("transform", function(d, i) {
- //  	console.log(d)
- //    return "translate(" + (x0(d.library)+25) + "," + ((y(d.value))) + ")"; 
- //  });
-
 	var barChart = svg.selectAll(".bar")
 	.data(properties.dataset);
 
@@ -107,10 +82,9 @@ function updateBarChart(svg, properties, x0, x1, y){
 	.data(function(d) { return d.val; })
 	.enter().append("rect");
 
-
 	if(properties.type == 2){
 		c = d3.scale.category10();
-		barChart.style("fill", function(d) {console.log(d); return c(d.name); });
+		barChart.style("fill", function(d) {return c(d.name); });
 	}
 
 	barChart.attr("width", x1.rangeBand())
@@ -118,7 +92,6 @@ function updateBarChart(svg, properties, x0, x1, y){
 	.attr("y", function(d) { return y(d.value); })
 	.attr("value", function(d){return d.name;})
 	.attr("height", function(d) { return height - y(d.value); })
-
 
 	return barChart;
 }
@@ -158,7 +131,6 @@ function createBarChart(properties){
 			return {name: name, value: +d[name], library: d.library};
 		});
 	});
-
 
 	d3.select("#" + properties.div + "-svg").remove();
 	var svg = d3.select("#" + properties.div).append("svg")
@@ -264,7 +236,6 @@ function createHtmlToolTipBarChartII(title, d, data){
 	var total = 0;
 	data.forEach(function(d){
 		if(title === d.name){
-
 			var totalPublic = Number(d.total_public_interfaces);
 			var totalPublicUsage = Number(d.total_public_interfaces_usage);
 			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
@@ -310,13 +281,25 @@ function initBarChartI(data){
 	createBarCharI(data);
 }
 
-function updateBarCharI(listLibs){
+function updateBarCharI(listLibs, sort){
 	var data = [];
+
+	//Filtra bibliotecas.
 	dataChartI.forEach(function(d) {
 		if(listLibs.indexOf(d.name) != -1){
 			data.push(d);
 		}
 	});
+
+	//Ordena se necessário.
+	if(sort == 2){
+		data.sort(function(value1, value2){
+			var a = Number(value1.total_internal_interfaces_usage_percentage);
+			var b = Number(value2.total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
+	
 	createBarCharI(data);
 }
 

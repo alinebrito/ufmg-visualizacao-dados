@@ -43,3 +43,13 @@ function readDataAndCreateBoxPlot(){
 	});
 }
 
+/**
+ * Retorna a lista de bibliotecas selecionadas.
+ */
+function getLibsSelected(){
+	var libs = [];
+	$("input:checkbox:checked").each(function(){
+    libs.push($(this).val());
+	});
+	return libs;
+}

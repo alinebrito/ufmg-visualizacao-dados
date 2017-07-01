@@ -11,10 +11,10 @@ function selectVisualization(option){
 	}
 }
 
-function updateChartsByLibraries(libs){
-	updateBarCharI(libs);
-	updateScatterPlot(libs);
-	updateBoxPlot(libs);
+function updateChartsByLibraries(libs, sort){
+	updateBarCharI(libs, sort);
+	updateScatterPlot(libs, sort);
+	updateBoxPlot(libs, sort);
 }
 
 function showScatterPlot(){
