@@ -134,13 +134,23 @@ function createDataFormatScatterPlot(data){
 	return data;
 }
 
-function updateScatterPlot(listLibs){
+function updateScatterPlot(listLibs, sort){
 	var data = [];
 	dataScatter.forEach(function(d) {
 		if(listLibs.indexOf(d.library) != -1){
 			data.push(d);
 		}
 	});
+	
+	//Ordena se necessário.
+	if(sort == 2){
+		data.sort(function(value1, value2){
+			var a = Number(libraries[value1.library].total_internal_interfaces_usage_percentage);
+			var b = Number(libraries[value2.library].total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
+
 	createScatterPlot(data, listLibs);
 }
 

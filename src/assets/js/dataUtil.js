@@ -2,12 +2,17 @@
  * Script para ler os dados provenientes dos arquivos CSV e criar os respectivos gráficos.
  */
 
+var libraries = {};
+
 /**
  * Inicializa primeiro gráfico de barras.
  */
 function readDataAndCreateBarChartI(){
 	var file = '/data/data-use-internal-interfaces-by-library.csv';
 	d3.csv(file, function(error, data) {
+		data.forEach(function(d){
+			libraries[d.name] = d;
+		});
 		initBarChartI(data);
 	});
 }

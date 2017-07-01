@@ -344,7 +344,7 @@ var dataBoxPlot;
 /**
  * Formata os dados para o BoxPlot.
  */
-function createDataFormatBoxPlot(csv){
+function createDataFormatBoxPlot(csv, sort){
 	var header = Object.keys(csv[0]);
 	var data = [];
 	
@@ -361,6 +361,15 @@ function createDataFormatBoxPlot(csv){
 			data[i][1].push(value);
 		}
 	});
+
+	//Ordena por popularidade se necessário.
+	if(sort == 2){
+		data.sort(function(value1, value2){
+			var a = Number(libraries[value1[0]].total_internal_interfaces_usage_percentage);
+			var b = Number(libraries[value2[0]].total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
 	return data;
 }
 
@@ -472,18 +481,18 @@ function createBoxPlot(properties){
 /**
  * Cria o box Plot na respectiva Div.
  */
-function updateOrCreateBoxPlot(data, listLibs){
+function updateOrCreateBoxPlot(data, listLibs, sort){
 	if(data){
 		var properties = {};
 		properties.div = 'chart2-area';
-		properties.dataset = createDataFormatBoxPlot(data);
+		properties.dataset = createDataFormatBoxPlot(data, sort);
 		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth;
 		createBoxPlot(properties);
 	}
 }
 
 
-function updateBoxPlot(listLibs){
+function updateBoxPlot(listLibs, sort){
 	var data = [];
 	dataBoxPlot.forEach(function(d) {
 		var map = {};
@@ -494,7 +503,7 @@ function updateBoxPlot(listLibs){
 		});
 		data.push(map);
 	});
-	updateOrCreateBoxPlot(data, listLibs);
+	updateOrCreateBoxPlot(data, listLibs, sort);
 }
 
 function initBoxPlot(data){
