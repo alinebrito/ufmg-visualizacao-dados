@@ -46,6 +46,31 @@ function updateBarChart(svg, properties, x0, x1, y){
 
 	var c = properties.color;
 
+	//Adiciona caule da flor com o nome dos países. Label com o nome dos paíse é armazenado junto ao objeto (variável 'name').
+ //  var label = svg
+ //  .selectAll(".label")
+ //  .data(properties.dataset);
+
+ //  label.enter().append("g")
+ //  .attr("class", "rect")
+
+ // //  var g = label.append("g")
+	// // .attr("class", "rect");
+
+	// label = label.selectAll("rect")
+	// .data(function(d) { return d.val; })
+	// .enter().append("rect");
+
+
+	// label.append("text")
+ //  .text('teste')
+ //  .attr("class", "labelBar")
+ //  .attr("font-size","12px")
+ //  .attr("transform", function(d, i) {
+ //  	console.log(d)
+ //    return "translate(" + (x0(d.library)+25) + "," + ((y(d.value))) + ")"; 
+ //  });
+
 	var barChart = svg.selectAll(".bar")
 	.data(properties.dataset);
 
@@ -59,19 +84,33 @@ function updateBarChart(svg, properties, x0, x1, y){
 	var g = barChart.append("g")
 	.attr("class", "rect");
 
+
 	if(properties.type == 1){
 		c = d3.scale.category20();
 		g = g.style("fill", function(d) {return c(x0(d.library));})
 	}
 	g = g.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
 
+	//Adiciona label nas barras com o respectivo percentual.
+	barChart.selectAll("rect")
+	.data(function(d) { return d.val; })
+	.enter().append("text")
+  .text(function(d){ return d.value + "%"})
+  .attr("class", "labelBar")
+  .attr("font-size","12px")
+  .style("fill", "#333")
+  .attr("transform", function(d) {
+    return "translate(" + (x1(d.name)) + "," + (y(0) - (y(properties.max - d.value)) - 2) + ")"; 
+  });
+
 	barChart = barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
 	.enter().append("rect");
 
+
 	if(properties.type == 2){
 		c = d3.scale.category10();
-		barChart.style("fill", function(d) {return c(d.name); });
+		barChart.style("fill", function(d) {console.log(d); return c(d.name); });
 	}
 
 	barChart.attr("width", x1.rangeBand())
@@ -80,39 +119,8 @@ function updateBarChart(svg, properties, x0, x1, y){
 	.attr("value", function(d){return d.name;})
 	.attr("height", function(d) { return height - y(d.value); })
 
+
 	return barChart;
-}
-
-function updateBarChartBackup(svg, properties, x0, x1, y){
-
-	var color = properties.color;
-
-	var barChart = svg.selectAll(".bar")
-	.data(properties.dataset);
-
-	properties.data.forEach(function (data){
-
-		barChart.enter().append("g")
-		.attr("class", "rect")
-		.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
-
-		barChart.exit().remove();
-
-		barChart.append("g")
-		.attr("class", "rect")
-		.attr("transform", function(d) { return "translate(" + x0(d.library) + ",0)"; })
-
-		barChart.selectAll("rect")
-		.data(function(d) { return d.val; })
-		.enter().append("rect")
-		.attr("width", x1.rangeBand())
-		.attr("x", function(d) { return x1(d.name); })
-		.attr("y", function(d) { return y(d.value); })
-		.attr("value", function(d){return d.name;})
-		.attr("height", function(d) { return height - y(d.value); });
-
-		return barChart;
-	})
 }
 
 function createBarChart(properties){
@@ -163,6 +171,7 @@ function createBarChart(properties){
 	x0.domain(properties.dataset.map(function(d) { return d.library; }));
 	x1.domain(properties.options).rangeRoundBands([0, x0.rangeBand()]);
 	y.domain([0, max]);
+	properties.max = max;
 
 	svg.append("g")
 	.attr("class", "x axis")

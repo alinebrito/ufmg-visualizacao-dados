@@ -10,15 +10,20 @@ $( document ).ready(function() {
 	showScatterPlot();
 
 	$("#typeChart label").click(function() {
-    	var option = $(this).find('input').attr('value')
-    	selectVisualization(option);
+  	var option = $(this).find('input').attr('value')
+  	selectVisualization(option);
 	});
 
 	$("#libs label").click(function() {
 		var libs = [];
 		$("input:checkbox:checked").each(function(){
-		    libs.push($(this).val());
+	    libs.push($(this).val());
 		});
 		updateChartsByLibraries(libs);
 	});
+
+	$("#checkAll").click(function () {
+    $(".check").prop('checked', $(this).prop('checked'));
+	});
+
 });
