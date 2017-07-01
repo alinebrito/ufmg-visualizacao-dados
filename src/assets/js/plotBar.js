@@ -3,7 +3,7 @@
  */
 
 //Configurações de margem.
-var margin = {top: 10, right: 20, bottom: 20, left: 60};
+var margin = {top: 15, right: 20, bottom: 50, left: 60};
 var width = - margin.left - margin.right - 40;
 var height = 200 - margin.top - margin.bottom;
 
@@ -11,11 +11,16 @@ var height = 200 - margin.top - margin.bottom;
 var dataChartI = null;
 
 /**
+* 
+* @param  {[svg]} svg     [description]
+* @param  {[type]} options [description]
+* @param  {[type]} width   [description]
+* @return {[type]}         [description]
+*/
+/**
  * Cria a legenda do gráfico.
- * @param  {[type]} svg     [description]
- * @param  {[type]} options [description]
- * @param  {[type]} width   [description]
- * @return {[type]}         [description]
+ * @param  {[svg]} svg svg do gráfico.
+ * @param  {[object]} properties [objeto com as propriedades do gráfico.]
  */
 function createLegend(svg, properties){
 
@@ -41,7 +46,14 @@ function createLegend(svg, properties){
 	});
 }
 
-
+/**
+ * Atualiza gráfico de barras.
+ * @param  {[svg]} svg svg do gráfico.
+ * @param  {[object]} properties [objeto com as propriedades do gráfico.]
+ * @param  {[type]} x0
+ * @param  {[type]} x1
+ * @param  {[type]} y
+ */
 function updateBarChart(svg, properties, x0, x1, y){
 
 	var c = properties.color;
@@ -70,13 +82,13 @@ function updateBarChart(svg, properties, x0, x1, y){
 	barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
 	.enter().append("text")
-  .text(function(d){ return d.value + "%"})
-  .attr("class", "labelBar")
-  .attr("font-size","12px")
-  .style("fill", "#333")
-  .attr("transform", function(d) {
-    return "translate(" + (x1(d.name)) + "," + (y(0) - (y(properties.max - d.value)) - 2) + ")"; 
-  });
+	.text(function(d){ return d.value + "%"})
+	.attr("class", "labelBar")
+	.attr("font-size","12px")
+	.style("fill", "#333")
+	.attr("transform", function(d) {
+		return "translate(" + (x1(d.name)) + "," + (y(0) - (y(properties.max - d.value)) - 2) + ")"; 
+	});
 
 	barChart = barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
@@ -96,8 +108,12 @@ function updateBarChart(svg, properties, x0, x1, y){
 	return barChart;
 }
 
+/**
+ * Cria ou atualiza gráfico de barras.
+ * @param  {[object]} properties [objeto com as propriedades do gráfico.]
+ */
 function createBarChart(properties){
- 	
+	
 	var max = 0; //Valor máximo do eixo Y.
 
 	//Configura eixos e respectivas escalas.
@@ -148,7 +164,14 @@ function createBarChart(properties){
 	svg.append("g")
 	.attr("class", "x axis")
 	.attr("transform", "translate(0," + height + ")")
-	.call(xAxis);
+	.call(xAxis)
+	.append("text")
+	.attr("x", (properties.width/2) )
+	.attr("y",  40 )
+	.attr("dy", "0.2em")
+	.style("text-anchor", "middle")
+	.style("font-size", "16px") 
+	.text("Bibliotecas");
 
 	svg.append("g")
 	.attr("class", "y axis")
@@ -166,14 +189,13 @@ function createBarChart(properties){
 	if(properties.containsLegend){
 		createLegend(svg, properties);
 	}
-
 	return barChart;
 }
 
 /**
- * Formata os dados para o primeiro gráfico de barras.
- * @param  {[map]} data [metadados do gráfico]
- */
+* Formata os dados para o primeiro gráfico de barras.
+* @param  {[map]} data [metadados do gráfico]
+*/
 function createDataFormatChartI(data){
 	var cols = [];
 	data.map(function(line, i){
@@ -189,10 +211,10 @@ function createDataFormatChartI(data){
 }
 
 /**
- * Formata os dados para o segundo gráfico de barras.
- * Visualização das Interfaces Internas e Públicas.
- * @param  {[map]} data [metadados do gráfico]
- */
+* Formata os dados para o segundo gráfico de barras.
+* Visualização das Interfaces Internas e Públicas.
+* @param  {[map]} data [metadados do gráfico]
+*/
 function createDataFormatChartII(data){
 	var cols = [];
 	data.map(function(line, i){
@@ -232,26 +254,26 @@ function createHtmlToolTipBarChartI(title, d, data){
  * @param  @param  {[map]} data     [map com os dados] = [key, value]
  */
 function createHtmlToolTipBarChartII(title, d, data){
-	var html = "<center><b>" + title + "</b></center><br><table>";
-	var total = 0;
-	data.forEach(function(d){
-		if(title === d.name){
-			var totalPublic = Number(d.total_public_interfaces);
-			var totalPublicUsage = Number(d.total_public_interfaces_usage);
-			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
+ 	var html = "<center><b>" + title + "</b></center><br><table>";
+ 	var total = 0;
+ 	data.forEach(function(d){
+ 		if(title === d.name){
+ 			var totalPublic = Number(d.total_public_interfaces);
+ 			var totalPublicUsage = Number(d.total_public_interfaces_usage);
+ 			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
 
-			var totalInternal = Number(d.total_internal_interfaces);
-			var totalInternalUsage = Number(d.total_internal_interfaces_usage);
-			var totalInternalUsagePercent = Number(d.total_internal_interfaces_usage_percentage);
+ 			var totalInternal = Number(d.total_internal_interfaces);
+ 			var totalInternalUsage = Number(d.total_internal_interfaces_usage);
+ 			var totalInternalUsagePercent = Number(d.total_internal_interfaces_usage_percentage);
 
-			total = totalInternal + totalPublic;
+ 			total = totalInternal + totalPublic;
 
-			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
-		}
-	});
+ 			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+ 			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
+ 			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
+ 			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
+ 		}
+ 	});
 	html += "</table><center><br><b>" + total + " interfaces</b></center>";
 	return html;
 }
@@ -276,21 +298,28 @@ function createToolTipBarChar(chart, data, type){
 	});
 }
 
+/**
+ * Configura e adiciona barChar I inicial.
+ * @param  {[map]} data [metados do gráfico]
+ */
 function initBarChartI(data){
 	dataChartI = data;
 	createBarCharI(data);
 }
 
+/**
+ * Atualiza barChar I.
+ * @param  {[list]} listLibs [lista de bibliotecas]
+ * @param  {[int]} sort [tipo de ordenação]
+ */
 function updateBarCharI(listLibs, sort){
-	var data = [];
-
+ 	var data = [];
 	//Filtra bibliotecas.
 	dataChartI.forEach(function(d) {
 		if(listLibs.indexOf(d.name) != -1){
 			data.push(d);
 		}
 	});
-
 	//Ordena se necessário.
 	if(sort == 2){
 		data.sort(function(value1, value2){
@@ -299,12 +328,12 @@ function updateBarCharI(listLibs, sort){
 			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 		});
 	}
-	
 	createBarCharI(data);
 }
 
 /**
- * Criar gráfico de barras do percentual de uso das interfaces internas (1º gráfico).
+ * Cria barChar I.
+ * @param {[map]} data [metados do gráfico]
  */
 function createBarCharI(data){
 	if(data){
@@ -325,7 +354,8 @@ function createBarCharI(data){
 }
 
 /**
- * Cria gráfico de barra das interfaces públicas e internas das bibliotecas Mockito e JUnit.
+ * Cria barChar II.
+ * @param {[map]} data [metados do gráfico]
  */
 function createBarCharII(data){
 	if(data){

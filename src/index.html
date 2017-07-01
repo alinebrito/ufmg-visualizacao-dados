@@ -1,326 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+		<title>Interfaces Internas</title>
 
-    <title>Interfaces Internas</title>
+		<!-- Bootstrap Core CSS -->
+		<link href="vendors/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="vendors/css/bootstrap.min.css" rel="stylesheet">
+		<!-- CSS customizado -->
+		<link href="assets/css/style.css" rel="stylesheet">
 
-    <!-- CSS customizado -->
-    <link href="assets/css/style.css" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link href="vendors/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link href="vendors/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+					<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+					<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+					<![endif]-->
+	</head>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">
+						<i class="fa fa-fw"></i><img src="assets/img/logo-ufmg-transparente.png"></a>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right ">
+						<li>
+							<li><a href="about.html"><i class="fa fa-info-circle"></i> Sobre</a></li>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+		<div class="container-fluid">
+			<div class="row info">
+				<div class="col-lg-12 text-center ">
+					<h1>Um Estudo em Larga Escala sobre o <br>Uso de Interfaces Internas</h1>
+				</div>
+			</div>
+			<div class="row " >
+				<div class="col-lg-3 col-sm-6">
+					<div class="circle-tile">
+						<a>
+							<div class="circle-tile-heading dark-blue">
+								<i class="fa fa-github fa-fw fa-3x"></i>
+							</div>
+						</a>
+						<div class="circle-tile-content dark-blue">
+							<div class="circle-tile-description text-faded">
+								Projetos
+							</div>
+							<div class="circle-tile-number text-faded">
+								263 mil
+								<span id="sparklineA"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="circle-tile">
+						<a>
+							<div class="circle-tile-heading dark-blue">
+								<i class="fa fa-file-text-o fa-fw fa-3x"></i>
+							</div>
+						</a>
+						<div class="circle-tile-content dark-blue">
+							<div class="circle-tile-description text-faded">
+								Arquivos Java
+							</div>
+							<div class="circle-tile-number text-faded">
+								16 milhões
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="circle-tile">
+						<a>
+							<div class="circle-tile-heading dark-blue">
+								<i class="fa fa-info fa-fw fa-3x"></i>
+							</div>
+						</a>
+						<div class="circle-tile-content dark-blue">
+							<div class="circle-tile-description text-faded">
+								Interfaces
+							</div>
+							<div class="circle-tile-number text-faded">
+								131 milhões
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="circle-tile">
+						<a>
+							<div class="circle-tile-heading dark-blue">
+								<i class="fa fa-tasks fa-fw fa-3x"></i>
+							</div>
+						</a>
+						<div class="circle-tile-content dark-blue">
+							<div class="circle-tile-description text-faded">
+								Bibliotecas
+							</div>
+							<div class="circle-tile-number text-faded">
+								15
+								<span id="sparklineB"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 center-block well">
+				Bibliotecas e frameworks são cada vez mais usados no desenvolvimento de sistemas, e consequentemente suas APIs. É comum a divisão dessas APIs em dois tipos, públicas e internas. Enquanto as APIs públicas são estáveis, as APIs internas envolvem detalhes de implementação, são instáaveis e sem suporte. Consequentemente, os provedores não recomendam o uso. Entretanto,
+				verifica-se que alguns sistemas clientes usam APIs internas, uma má prática no desenvolvimento de software. 
 
-</head>
+				Nesse contexto, estuda-se neste trabalho um conjunto de questõees relativas a frequência de utilização de APIs internas.
+				Utiliza-se uma base de dados com aproximadamente 260 mil projetos Java, 131 milhões de APIs e 16 milhões de arquivos Java.
+			</div>
+			<!-- Page Content -->
+			<div id="div-chart-principal"  class="top-margin">
+				<div class="row">
+					<div class="col-xs-10" id="div1">
+						<div id="div1-1">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Frequência de Utilização de Interfaces Internas
+									</div>
+									<div class="panel-body outer">
+										<div id="chart1-area" class="col-lg-12 ">
+											<div id="chart1-area-plot">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="div1-2">
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Distribuição do Uso de Interfaces Internas
+									</div>
+									<div class="panel-body" id="scatterPlot">
+										<div class="col-lg-12 outer">
+											<div id="chart22-area" class="col-lg-12 inner">
+												<div id="chart22-area-plot">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="panel-body" id="boxPlot">
+										<div class="col-lg-12 outer">
+											<div id="chart2-area" class="col-lg-12 ">
+												<div id="chart2-area-plot">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<div id="typeChart"> 
+											<div class="text-center panel-heading text-center">
+												<label class="radio-inline"><input type="radio" name="optionChart" value='1' >Box Plot</label>
+												<label class="radio-inline"><input type="radio" name="optionChart" value='2' checked='checked'>Scatter Plot</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2" id="div2">
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<div class="text-center panel-heading">
+									Bibliotecas
+								</div>
+								<div id="typeSort"> 
+									<div class="panel-heading">
+										<label class="radio-inline"><input type="radio" name="optionSort" value='1' checked='checked'>Ordenação Alfabética</label>
+									</div>
+									<div class="panel-heading panel-order">
+										<label class="radio-inline"><input type="radio" name="optionSort" value='2' >Ordenação por Popularidade</label>
+									</div>
+								</div>
+								<div id="libs" class="panel-body libs">
+									<div class="checkbox">
+										<label><input id="checkAll" class="check" type="checkbox" checked value="Todos">Todos</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Action Bar Sherlock">Action Bar Sherlock</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Android">Android</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Apache Maven">Apache Maven</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Easy Mock">Easy Mock</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Eclipse JDT">Eclipse JDT</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Facebook">Facebook</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Google Guice">Google Guice</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Google Gson">Google Gson</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Hamcrest">Hamcrest</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Hibernate">Hibernate</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Jboss">Jboss</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="JDK">JDK</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Junit">Junit</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Mockito">Mockito</label>
+									</div>
+									<div class="checkbox">
+										<label><input type="checkbox" class="check" checked value="Selenium OpenQA">Selenium OpenQA</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="panel-group col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Frequência de Utilização de Interfaces Internas e Públicas
+							</div>
+							<div class="panel-body">
+								<div class="col-lg-12 text-center">
+									<div id="legend-internal-public">
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div id="chart2-area" class="col-lg-6">
+										<div id="chart3-area-plot">
+										</div>
+									</div>
+									<div id="chart3-area" class="col-lg-6">
+										<div id="chart4-area-plot">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>  
+				</div>
+			</div>
+		</div>
+		<!-- /.container-fluid -->
 
-<body>
+		<!-- jQuery -->
+		<script src="vendors/js/jquery.js"></script>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <i class="fa fa-fw"></i><img src="assets/img/logo-ufmg-transparente.png"></a>
-                </a>
-            </div>
-            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right ">
-                    <li>
-                        <li><a href="about.html"><i class="fa fa-info-circle"></i> Sobre</a></li>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="vendors/js/bootstrap.min.js"></script>
 
-    <div class="container-fluid">
-        <div class="row info">
-            <div class="col-lg-12 text-center ">
-                <h1>Um Estudo em Larga Escala sobre o <br>Uso de Interfaces Internas</h1>
-            </div>
-        </div>
-        <div class="row " >
-            <div class="col-lg-3 col-sm-6">
-                <div class="circle-tile">
-                    <a>
-                        <div class="circle-tile-heading dark-blue">
-                            <i class="fa fa-github fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content dark-blue">
-                        <div class="circle-tile-description text-faded">
-                            Projetos
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            263 mil
-                            <span id="sparklineA"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="circle-tile">
-                    <a>
-                        <div class="circle-tile-heading dark-blue">
-                            <i class="fa fa-file-text-o fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content dark-blue">
-                        <div class="circle-tile-description text-faded">
-                            Arquivos Java
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            16 milhões
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="circle-tile">
-                    <a>
-                        <div class="circle-tile-heading dark-blue">
-                            <i class="fa fa-info fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content dark-blue">
-                        <div class="circle-tile-description text-faded">
-                            Interfaces
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            131 milhões
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="circle-tile">
-                    <a>
-                        <div class="circle-tile-heading dark-blue">
-                            <i class="fa fa-tasks fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content dark-blue">
-                        <div class="circle-tile-description text-faded">
-                            Bibliotecas
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            15
-                            <span id="sparklineB"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<!-- D3 -->
+		<script src="vendors/js/d3.v3.min.js"></script>
+		
 
-        <div class="col-lg-12 center-block well">
-            Bibliotecas e frameworks são cada vez mais usados no desenvolvimento de sistemas, e consequentemente suas APIs. É comum a divisão dessas APIs em dois tipos, públicas e internas. Enquanto as APIs públicas são estáveis, as APIs internas envolvem detalhes de implementação, são instáaveis e sem suporte. Consequentemente, os provedores não recomendam o uso. Entretanto,
-            verifica-se que alguns sistemas clientes usam APIs internas, uma má prática no desenvolvimento de software. 
+		<!-- Script para manipulação dos dados e funções do gráfico. -->
+		<script src="assets/js/dataUtil.js"></script>
+		
 
-            Nesse contexto, estuda-se neste trabalho um conjunto de questõees relativas a frequência de utilização de APIs internas.
-            Utiliza-se uma base de dados com aproximadamente 260 mil projetos Java, 131 milhões APIs e 16 milhões de arquivos Java.
+		<script src="assets/js/plotBar.js"></script>
+		<script src="assets/js/plotBox.js"></script>
+		<script src="assets/js/plotDonut.js"></script>
+		<script src="assets/js/plotScatter.js"></script>
 
-        </div>
-        <!-- Page Content -->
-        <div id="div-chart-principal"  class="top-margin">
-
-            <div class="row">
-                <div class="col-xs-10" id="div1">
-                    <div id="div1-1">
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Frequência de Utilização de Interfaces Internas
-                                </div>
-                                <div class="panel-body outer">
-                                    <div id="chart1-area" class="col-lg-12 ">
-                                        <div id="chart1-area-plot">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="div1-2">
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Distribuição do Uso de Interfaces Internas
-                                </div>
-                                <div class="panel-body" id="scatterPlot">
-                                    <div class="col-lg-12 outer">
-                                        <div id="chart22-area" class="col-lg-12 inner">
-                                            <div id="chart22-area-plot">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body" id="boxPlot">
-                                    <div class="col-lg-12 outer">
-                                        <div id="chart2-area" class="col-lg-12 ">
-                                            <div id="chart2-area-plot">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div id="typeChart"> 
-                                        <div class="text-center panel-heading text-center">
-                                            <label class="radio-inline"><input type="radio" name="optionChart" value='1' >Box Plot</label>
-                                            <label class="radio-inline"><input type="radio" name="optionChart" value='2' checked='checked'>Scatter Plot</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-xs-2" id="div2">
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="text-center panel-heading">
-                                Bibliotecas
-                            </div>
-                            <div id="typeSort"> 
-                                <div class="panel-heading">
-                                    <label class="radio-inline"><input type="radio" name="optionSort" value='1' checked='checked'>Ordenação Alfabética</label>
-                                </div>
-                              <div class="panel-heading panel-order">
-                                    <label class="radio-inline"><input type="radio" name="optionSort" value='2' >Ordenação por Popularidade</label>
-                                </div>
-                            </div>
-                            <div id="libs" class="panel-body libs">
-                                <div class="checkbox">
-                                    <label><input id="checkAll" class="check" type="checkbox" checked value="Todos">Todos</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Action Bar Sherlock">Action Bar Sherlock</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Android">Android</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Apache Maven">Apache Maven</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Easy Mock">Easy Mock</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Eclipse JDT">Eclipse JDT</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Facebook">Facebook</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Google Guice">Google Guice</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Google Gson">Google Gson</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Hamcrest">Hamcrest</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Hibernate">Hibernate</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Jboss">Jboss</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="JDK">JDK</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Junit">Junit</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Mockito">Mockito</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="check" checked value="Selenium OpenQA">Selenium OpenQA</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <div class="row ">
-                <div class="panel-group col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Frequência de Utilização de Interfaces Internas e Públicas
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-lg-12 text-center">
-                                <div id="legend-internal-public">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div id="chart2-area" class="col-lg-6">
-                                    <div id="chart3-area-plot">
-                                    </div>
-                                </div>
-                                <div id="chart3-area" class="col-lg-6">
-                                    <div id="chart4-area-plot">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>  
-             </div>
-
-        </div>
-    </div>
-    <!-- /.container-fluid -->
-
-    <!-- jQuery -->
-    <script src="vendors/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/js/bootstrap.min.js"></script>
-
-    <!-- D3 -->
-    <script src="vendors/js/d3.v3.min.js"></script>
-   
-
-    <!-- Script para manipulação dos dados e funções do gráfico. -->
-    <script src="assets/js/dataUtil.js"></script>
-    
-
-    <script src="assets/js/plotBar.js"></script>
-    <script src="assets/js/plotBox.js"></script>
-    <script src="assets/js/plotDonut.js"></script>
-    <script src="assets/js/plotScatter.js"></script>
-
-    <script src="assets/js/chartUtils.js"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
+		<script src="assets/js/chartUtils.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 
 </html>

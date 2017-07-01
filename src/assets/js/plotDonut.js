@@ -2,11 +2,10 @@
  * Script para criar o Donnut Chart.
  */
 
-
 /**
-* Cria o Donut Char.
-* Adaptado de: http://bl.ocks.org/erichoco/6694616
-*/
+ *  Cria o Donut Char.
+ * @param {[type]} idDiv [id da div onde o gráfico será criado.]
+ */
 function DonutCharts(idDiv) {
 	var charts = d3.select('#' + idDiv);
 	var chart_m;
@@ -53,7 +52,6 @@ function DonutCharts(idDiv) {
 				.transition()
 				.attr("r", chart_r * 0.65);
 			},
-
 			'mouseout': function(d, i) {
 				d3.select(this)
 				.transition()
@@ -61,7 +59,6 @@ function DonutCharts(idDiv) {
 				.ease('bounce')
 				.attr("r", chart_r * 0.6);
 			},
-
 			'click': function(d, i) {
 				var paths = charts.selectAll('.clicked');
 				pathAnim(paths, 0);
@@ -126,29 +123,28 @@ function DonutCharts(idDiv) {
 	var pathAnim = function(path, dir) {
 		switch(dir) {
 			case 0:
-				path.transition()
-				.duration(500)
-				.ease('bounce')
-				.attr('d', d3.svg.arc()
-					.innerRadius(chart_r * 0.7)
-					.outerRadius(chart_r)
+			path.transition()
+			.duration(500)
+			.ease('bounce')
+			.attr('d', d3.svg.arc()
+				.innerRadius(chart_r * 0.7)
+				.outerRadius(chart_r)
 				);
-				break;
+			break;
 
 			case 1:
-				path.transition()
-				.attr('d', d3.svg.arc()
-					.innerRadius(chart_r * 0.7)
-					.outerRadius(chart_r * 1.08)
+			path.transition()
+			.attr('d', d3.svg.arc()
+				.innerRadius(chart_r * 0.7)
+				.outerRadius(chart_r * 1.08)
 				);
-				break;
+			break;
 		}
 	}
 
 	var updateDonut = function() {
 
 		var eventObj = {
-
 			'mouseover': function(d, i, j) {
 				pathAnim(d3.select(this), 1);
 				var thisDonut = charts.select('.type' + j);
@@ -159,7 +155,6 @@ function DonutCharts(idDiv) {
 					return (d.data.val/donut_d.total*100).toFixed(2) + '%';
 				});
 			},
-
 			'mouseout': function(d, i, j) {
 				var thisPath = d3.select(this);
 				if (!thisPath.classed('clicked')) {
@@ -168,7 +163,6 @@ function DonutCharts(idDiv) {
 				var thisDonut = charts.select('.type' + j);
 				setCenterText(thisDonut);
 			},
-
 			'click': function(d, i, j) {
 				var thisDonut = charts.select('.type' + j);
 				if (0 === thisDonut.selectAll('.clicked')[0].length) {
@@ -250,9 +244,9 @@ function DonutCharts(idDiv) {
 }
 
 /**
- * Formata os dados para o Donut.
- * @param  {[map]} data [dados do gráfico]
- */
+* Formata os dados para o Donut.
+* @param  {[map]} data [dados do gráfico]
+*/
 function createDataFormatDonut(data){
 	var dataset = new Array();
 	data.map(function(line, i){
@@ -262,7 +256,7 @@ function createDataFormatDonut(data){
 		var total = total_interface_internal + total_interface_public;
 		var type = line['name'];
 		var unit = ' Interfaces';
-
+		
 		var categories = new Array();
 		categories.push({'cat': 'Interfaces Internas', 'val': total_interface_internal});
 		categories.push({'cat': 'Interfaces Públicas', 'val': total_interface_public});
@@ -278,18 +272,17 @@ function createDataFormatDonut(data){
 }
 
 /**
- * Cria o Donut Chart na respectiva div.
- * @param  {[MAP]} data [metadadis sobre a popularidade de interfaces]
- * @return {[type]}      [description]
- */
+* Cria o Donut Chart na respectiva div.
+* @param  {[MAP]} data [metadadis sobre a popularidade de interfaces]
+* @return {[type]}      [description]
+*/
 function createDonutCharPublicAndInternalInterface(data){
-    if(data){
-        var properties = {};
-        properties.div = 'chart3-area-plot';
-        properties.divLegend = 'legend-internal-public';
-        properties.dataset = createDataFormatDonut(data);
-
-        var donuts = new DonutCharts(properties.div);
-        donuts.create(properties);   
-    }
+	if(data){
+		var properties = {};
+		properties.div = 'chart3-area-plot';
+		properties.divLegend = 'legend-internal-public';
+		properties.dataset = createDataFormatDonut(data);
+		var donuts = new DonutCharts(properties.div);
+		donuts.create(properties);   
+	}
 }
