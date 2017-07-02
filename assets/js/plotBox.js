@@ -6,9 +6,8 @@ var dataBoxPlot;
 
 
 /**
- * Retorna HMTL com dados do toolTip para o gráfico I.
- * @param  {[type]} title [description] - Título do ToolTip
- * @param  @param  {[map]} data     [map com os dados] = [key, value]
+ * Retorna o html do tooltip.
+ * @param  {[object]} dados dos box plot.
  */
 function createHtmlToolBoxPlot(d){
 	var html = "<table>";

@@ -8,7 +8,7 @@
 * Formata o texto do tooltip do ponto.
 */
 function createHtmlToolTipDot(d){
-	var html = "<b>" + d["api"] + "</b><br/><br/> Usada por " + Number(d.usage.toFixed(1)).toLocaleString() + "% dos clientes";
+	var html = "<b>" + d["api"] + "</b><br/><br/> Usada por " + Number(d.usage.toFixed(1)).toLocaleString("pt-BR") + "% dos clientes";
 	return html;
 }
 

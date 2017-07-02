@@ -152,7 +152,7 @@ function DonutCharts(idDiv) {
 					return d.data.val.toFixed(0) + donut_d.unit;
 				});
 				thisDonut.select('.percentage').text(function(donut_d) {
-					return Number((d.data.val/donut_d.total*100).toFixed(2)).toLocaleString() + '%';
+					return Number((d.data.val/donut_d.total*100).toFixed(2)).toLocaleString("pt-BR") + '%';
 				});
 			},
 			'mouseout': function(d, i, j) {

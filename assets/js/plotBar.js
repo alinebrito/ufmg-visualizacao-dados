@@ -81,7 +81,7 @@ function updateBarChart(svg, properties, x0, x1, y){
 	barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
 	.enter().append("text")
-	.text(function(d){return  Number(d.value).toLocaleString() + "%"})
+	.text(function(d){return  Number(d.value).toLocaleString("pt-BR") + "%"})
 	.attr("class", "labelBar")
 	.attr("font-size","12px")
 	.style("fill", "#333")
@@ -94,7 +94,7 @@ function updateBarChart(svg, properties, x0, x1, y){
 		barChart.selectAll("rect")
 		.data(function(d) { return d.val; })
 		.enter().append("text")
-		.text(function(d){return Number(libraries[d.library].number_clients).toLocaleString() + " clientes"})
+		.text(function(d){return Number(libraries[d.library].number_clients).toLocaleString("pt-BR") + " clientes"})
 		.attr("class", "labelBar")
 		.attr("font-size","12px")
 		.style("fill", "#333")
@@ -252,9 +252,9 @@ function createHtmlToolTipBarChartI(title, d, data){
 	var html = "<center><b>" + title + "</b></center><br><table>";
 	data.forEach(function(d){
 		if(title === d.name){
-			html += "<tr align='left'><td align='right'>" + Number(d.number_clients).toLocaleString() + "</td><td>&emsp;clientes</td></tr>"
-			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces).toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + Number(d.total_internal_interfaces_usage_percentage).toLocaleString() + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.number_clients).toLocaleString("pt-BR") + "</td><td>&emsp;clientes</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces).toLocaleString("pt-BR") + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces_usage).toLocaleString("pt-BR") + "</td><td>&emsp;interfaces internas usadas (" + Number(d.total_internal_interfaces_usage_percentage).toLocaleString("pt-BR") + "%)</td></tr>"
 		}
 	})
 	html += "</table>";
@@ -281,10 +281,10 @@ function createHtmlToolTipBarChartII(title, d, data){
 
 			total = totalInternal + totalPublic;
 
-			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + Number(totalInternalUsagePercent).toLocaleString() + "%)</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + Number(totalPublicUsagePercent).toLocaleString() + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString("pt-BR") + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString("pt-BR") + "</td><td>&emsp;interfaces internas usadas (" + Number(totalInternalUsagePercent).toLocaleString("pt-BR") + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString("pt-BR") + "</td><td>&emsp;interfaces públicas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString("pt-BR") + "</td><td>&emsp;interfaces públicas usadas (" + Number(totalPublicUsagePercent).toLocaleString("pt-BR") + "%)</td></tr>"
 		}
 	});
 	html += "</table><center><br><b>" + total + " interfaces</b></center>";
