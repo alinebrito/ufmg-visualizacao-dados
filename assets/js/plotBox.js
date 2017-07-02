@@ -526,7 +526,7 @@ function updateOrCreateBoxPlot(data, listLibs, sort){
 		var properties = {};
 		properties.div = 'chart2-area';
 		properties.dataset = createDataFormatBoxPlot(data, sort);
-		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth;
+		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth * 1.5;
 		createBoxPlot(properties);
 	}
 }

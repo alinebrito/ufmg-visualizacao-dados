@@ -183,7 +183,8 @@ function createScatterPlot(data, listLibs){
 		var properties = {};
 		properties.div = 'chart22-area-plot';
 		properties.dataset = createDataFormatScatterPlot(data);
-		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth;
+		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth * 1.5;
+		console.log("teste" + properties.width)
 		properties.labelY = 'Uso da Interface Interna (%)';
 		var chart = createScatter(properties);
 	}
