@@ -44,8 +44,8 @@
 				</div>
 				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right ">
-						<li>
-							<li><a href="about.html"><i class="fa fa-info-circle"></i> Sobre</a></li>
+						<li >
+							<li ><a href="about.html"><i class="fa fa-info-circle"></i> Sobre</a></li>
 						</li>
 					</ul>
 				</div>
@@ -56,10 +56,10 @@
 		<div class="container-fluid">
 			<div class="row info">
 				<div class="col-lg-12 text-center ">
-					<h1>Um Estudo em Larga Escala sobre o <br>Uso de Interfaces Internas</h1>
+					<h1><b>Um Estudo em Larga Escala sobre o <br>Uso de Interfaces Internas</b></h1>
 				</div>
 			</div>
-			<div class="row " >
+			<div class="row row-principal" >
 				<div class="col-lg-3 col-sm-6">
 					<div class="circle-tile">
 						<a>
@@ -148,6 +148,9 @@
 									<div class="panel-heading">
 										Qual a frequência de Utilização de Interfaces Internas?
 									</div>
+									<div class="col-lg-12 center-block well label-rq">
+										Nessa primeira questão de pesquisa estuda-se a frequência com que clientes usam interfaces internas, ou seja, qual o percentual de interfaces internas de uma dada biblioteca que são usadas por projetos clientes.
+									</div>
 									<div class="panel-body outer">
 										<div id="chart1-area" class="col-lg-12 ">
 											<div id="chart1-area-plot">
@@ -161,7 +164,10 @@
 							<div class="panel-group">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										Qual a distribuição do Uso de Interfaces Internas?
+										Qual a Distribuição do Uso de Interfaces Internas?
+									</div>
+									<div class="col-lg-12 center-block well label-rq">
+										Nessa segunda questão de pesquisa analisa-se até a 50ª interface interna mais usada por biblioteca. É mostrado um <i>box plot</i> e um <i>scatter plot</i>, a fim de melhor apresentar a distribuição. Cada ponto traçado no <i>scatter plot</i> corresponde a uma interface, e o seu tamanho é proporcional ao seu uso (quanto maior o ponto, mais usada é a interface). 
 									</div>
 									<div class="panel-body" id="scatterPlot">
 										<div class="col-lg-12 outer">
@@ -199,10 +205,13 @@
 								</div>
 								<div id="typeSort">
 									<div class="panel-heading">
-										<label class="radio-inline"><input type="radio" name="optionSort" value='1' checked='checked'>Ordenação Alfabética</label>
+										<label class="radio-inline"><input type="radio" name="optionSort" value='1' checked='checked'>Ordenação alfabética</label>
 									</div>
 									<div class="panel-heading panel-order">
-										<label class="radio-inline"><input type="radio" name="optionSort" value='2' >Ordenação por Popularidade</label>
+										<label class="radio-inline"><input type="radio" name="optionSort" value='2' >Ordenação por uso de interfaces internas</label>
+									</div>
+									<div class="panel-heading panel-order">
+										<label class="radio-inline"><input type="radio" name="optionSort" value='3' >Ordenação por popularidade</label>
 									</div>
 								</div>
 								<div id="libs" class="panel-body libs">
@@ -263,7 +272,10 @@
 					<div class="panel-group col-xs-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-							Qual a frequência de Utilização de Interfaces Internas e Públicas?
+								Qual a Frequência de Utilização de Interfaces Internas e Públicas?
+							</div>
+							<div class="col-lg-12 center-block well label-rq">
+								Nessa questão de pesquisa estuda-se a frequência com que as interfaces internas e públicas de uma bibliotecas são usadas. As bibliotecas JUnit e Mockito são analisadas, devido a  popularidade no desenvolvimento de testes de unidades e documentação com interfaces e pacotes bem definidos.
 							</div>
 							<div class="panel-body">
 								<div class="col-lg-12 text-center">

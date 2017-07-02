@@ -4,6 +4,21 @@
 
 var dataBoxPlot;
 
+
+/**
+ * Retorna HMTL com dados do toolTip para o gráfico I.
+ * @param  {[type]} title [description] - Título do ToolTip
+ * @param  @param  {[map]} data     [map com os dados] = [key, value]
+ */
+function createHtmlToolBoxPlot(d){
+	var html = "<table>";
+	html += "<tr align='left'><td align='right'>" + Number(d[2].toFixed(1)).toLocaleString() + "%</td><td>&emsp;Q3</td></tr>"
+	html += "<tr align='left'><td align='right'>" + Number(d[1].toFixed(1)).toLocaleString() + "%</td><td>&emsp;Q2 (mediana)</td></tr>"
+	html += "<tr align='left'><td align='right'>" + Number(d[0].toFixed(1)).toLocaleString() + "%</td><td>&emsp;Q1 </td></tr>"
+	html += "</table>";
+	return html;
+}
+
 /**
  * Função para criar os BoxPlot.
  * Adaptado de: http://bl.ocks.org/jensgrubert/7789216
@@ -107,6 +122,25 @@ var dataBoxPlot;
 				.attr("y", function(d) { return x1(d[2]); })
 				.attr("height", function(d) { return x1(d[0]) - x1(d[2]); });
 
+				// Adiciona Tooltip
+				var toolTip = d3.select("body").append("div")
+				.attr("class", "toolTip")
+				.style("opacity", 0);
+
+				box.on("mousemove", function(d) {
+					toolTip.transition()
+					.duration(1)
+					.style("opacity", 1);
+					toolTip.style("display", "inline-block");
+					toolTip.html(createHtmlToolBoxPlot(d))
+					.style("left", (d3.event.pageX + 5) + "px")
+					.style("top", (d3.event.pageY - 28) + "px");
+				})
+				.on("mouseout", function(d) {
+					toolTip.transition()
+					.duration(500)
+					.style("opacity", 0);
+				});
 				//Configura e adiciona a linha da mediana.
 				var medianLine = g.selectAll("line.median")
 				.data([quartileData[1]]);
@@ -358,11 +392,20 @@ function createDataFormatBoxPlot(csv, sort){
 		}
 	});
 
-	//Ordena por popularidade se necessário.
+	//Ordena por uso de interfaces internas.
 	if(sort == 2){
 		data.sort(function(value1, value2){
 			var a = Number(libraries[value1[0]].total_internal_interfaces_usage_percentage);
 			var b = Number(libraries[value2[0]].total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
+
+	//Ordena por popularidade se necessário.
+	if(sort == 3){
+		data.sort(function(value1, value2){
+			var a = Number(libraries[value1[0]].number_clients);
+			var b = Number(libraries[value2[0]].number_clients);
 			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 		});
 	}

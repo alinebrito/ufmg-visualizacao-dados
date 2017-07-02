@@ -8,7 +8,7 @@
 * Formata o texto do tooltip do ponto.
 */
 function createHtmlToolTipDot(d){
-	var html = "<b>" + d["api"] + "</b><br/><br/> Usada por " + d.usage.toFixed(1) + "% dos clientes";
+	var html = "<b>" + d["api"] + "</b><br/><br/> Usada por " + Number(d.usage.toFixed(1)).toLocaleString() + "% dos clientes";
 	return html;
 }
 
@@ -158,6 +158,15 @@ function updateScatterPlot(listLibs, sort){
 		data.sort(function(value1, value2){
 			var a = Number(libraries[value1.library].total_internal_interfaces_usage_percentage);
 			var b = Number(libraries[value2.library].total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
+
+	//Ordena se necessário.
+	if(sort == 3){
+		data.sort(function(value1, value2){
+			var a = Number(libraries[value1.library].number_clients);
+			var b = Number(libraries[value2.library].number_clients);
 			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 		});
 	}

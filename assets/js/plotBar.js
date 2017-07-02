@@ -3,9 +3,9 @@
  */
 
 //Configurações de margem.
-var margin = {top: 15, right: 20, bottom: 50, left: 60};
+var margin = {top: 40, right: 20, bottom: 50, left: 60};
 var width = - margin.left - margin.right - 40;
-var height = 200 - margin.top - margin.bottom;
+var height = 250 - margin.top - margin.bottom;
 
 //Dados originais dos gráficos.
 var dataChartI = null;
@@ -81,13 +81,27 @@ function updateBarChart(svg, properties, x0, x1, y){
 	barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
 	.enter().append("text")
-	.text(function(d){ return d.value + "%"})
+	.text(function(d){return  Number(d.value).toLocaleString() + "%"})
 	.attr("class", "labelBar")
 	.attr("font-size","12px")
 	.style("fill", "#333")
 	.attr("transform", function(d) {
 		return "translate(" + (x1(d.name)) + "," + (y(0) - (y(properties.max - d.value)) - 2) + ")"; 
 	});
+
+	if(properties.type == 1){
+		//Adiciona label nas barras com o respectivo percentual.
+		barChart.selectAll("rect")
+		.data(function(d) { return d.val; })
+		.enter().append("text")
+		.text(function(d){return Number(libraries[d.library].number_clients).toLocaleString() + " clientes"})
+		.attr("class", "labelBar")
+		.attr("font-size","12px")
+		.style("fill", "#333")
+		.attr("transform", function(d) {
+			return "translate(" + (x1(d.name)) + "," + (y(0) - (y(properties.max - d.value)) - 15) + ")"; 
+		});
+	}
 
 	barChart = barChart.selectAll("rect")
 	.data(function(d) { return d.val; })
@@ -199,7 +213,7 @@ function createDataFormatChartI(data){
 	var cols = [];
 	data.map(function(line, i){
 		var value = line;
-		var use = (Number( line['total_internal_interfaces_usage_percentage']));
+		var use = (Number(line['total_internal_interfaces_usage_percentage']));
 		var col = {
 			"library": line['name'],
 			"Interfaces Internas": use,
@@ -240,7 +254,7 @@ function createHtmlToolTipBarChartI(title, d, data){
 		if(title === d.name){
 			html += "<tr align='left'><td align='right'>" + Number(d.number_clients).toLocaleString() + "</td><td>&emsp;clientes</td></tr>"
 			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces).toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + d.total_internal_interfaces_usage_percentage + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + Number(d.total_internal_interfaces_usage).toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + Number(d.total_internal_interfaces_usage_percentage).toLocaleString() + "%)</td></tr>"
 		}
 	})
 	html += "</table>";
@@ -268,9 +282,9 @@ function createHtmlToolTipBarChartII(title, d, data){
 			total = totalInternal + totalPublic;
 
 			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + Number(totalInternalUsagePercent).toLocaleString() + "%)</td></tr>"
 			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
-			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + Number(totalPublicUsagePercent).toLocaleString() + "%)</td></tr>"
 		}
 	});
 	html += "</table><center><br><b>" + total + " interfaces</b></center>";
@@ -319,11 +333,18 @@ function updateBarCharI(listLibs, sort){
 			data.push(d);
 		}
 	});
-	//Ordena se necessário.
+	//Ordena se necessário, por uso de APIs internas.
 	if(sort == 2){
 		data.sort(function(value1, value2){
 			var a = Number(value1.total_internal_interfaces_usage_percentage);
 			var b = Number(value2.total_internal_interfaces_usage_percentage);
+			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+		});
+	}
+	else if(sort == 3){//Ordena se necessário, por popularidade.
+		data.sort(function(value1, value2){
+			var a = Number(value1.number_clients);
+			var b = Number(value2.number_clients);
 			return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 		});
 	}
