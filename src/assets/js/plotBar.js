@@ -11,7 +11,6 @@ var height = 200 - margin.top - margin.bottom;
 var dataChartI = null;
 
 /**
-* 
 * @param  {[svg]} svg     [description]
 * @param  {[type]} options [description]
 * @param  {[type]} width   [description]
@@ -113,7 +112,7 @@ function updateBarChart(svg, properties, x0, x1, y){
  * @param  {[object]} properties [objeto com as propriedades do gráfico.]
  */
 function createBarChart(properties){
-	
+
 	var max = 0; //Valor máximo do eixo Y.
 
 	//Configura eixos e respectivas escalas.
@@ -170,7 +169,7 @@ function createBarChart(properties){
 	.attr("y",  40 )
 	.attr("dy", "0.2em")
 	.style("text-anchor", "middle")
-	.style("font-size", "16px") 
+	.style("font-size", "16px")
 	.text("Bibliotecas");
 
 	svg.append("g")
@@ -254,26 +253,26 @@ function createHtmlToolTipBarChartI(title, d, data){
  * @param  @param  {[map]} data     [map com os dados] = [key, value]
  */
 function createHtmlToolTipBarChartII(title, d, data){
- 	var html = "<center><b>" + title + "</b></center><br><table>";
- 	var total = 0;
- 	data.forEach(function(d){
- 		if(title === d.name){
- 			var totalPublic = Number(d.total_public_interfaces);
- 			var totalPublicUsage = Number(d.total_public_interfaces_usage);
- 			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
+	var html = "<center><b>" + title + "</b></center><br><table>";
+	var total = 0;
+	data.forEach(function(d){
+		if(title === d.name){
+			var totalPublic = Number(d.total_public_interfaces);
+			var totalPublicUsage = Number(d.total_public_interfaces_usage);
+			var totalPublicUsagePercent = Number(d.total_public_interfaces_usage_percentage);
 
- 			var totalInternal = Number(d.total_internal_interfaces);
- 			var totalInternalUsage = Number(d.total_internal_interfaces_usage);
- 			var totalInternalUsagePercent = Number(d.total_internal_interfaces_usage_percentage);
+			var totalInternal = Number(d.total_internal_interfaces);
+			var totalInternalUsage = Number(d.total_internal_interfaces_usage);
+			var totalInternalUsagePercent = Number(d.total_internal_interfaces_usage_percentage);
 
- 			total = totalInternal + totalPublic;
+			total = totalInternal + totalPublic;
 
- 			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
- 			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
- 			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
- 			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
- 		}
- 	});
+			html += "<tr align='left'><td align='right'>" + totalInternal.toLocaleString() + "</td><td>&emsp;interfaces internas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalInternalUsage.toLocaleString() + "</td><td>&emsp;interfaces internas usadas (" + totalInternalUsagePercent + "%)</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublic.toLocaleString() + "</td><td>&emsp;interfaces públicas</td></tr>"
+			html += "<tr align='left'><td align='right'>" + totalPublicUsage.toLocaleString() + "</td><td>&emsp;interfaces públicas usadas (" + totalPublicUsagePercent + "%)</td></tr>"
+		}
+	});
 	html += "</table><center><br><b>" + total + " interfaces</b></center>";
 	return html;
 }
@@ -313,7 +312,7 @@ function initBarChartI(data){
  * @param  {[int]} sort [tipo de ordenação]
  */
 function updateBarCharI(listLibs, sort){
- 	var data = [];
+	var data = [];
 	//Filtra bibliotecas.
 	dataChartI.forEach(function(d) {
 		if(listLibs.indexOf(d.name) != -1){

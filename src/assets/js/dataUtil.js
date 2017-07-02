@@ -15,6 +15,7 @@ function readDataAndCreateBarChartI(){
 		});
 		initBarChartI(data);
 	});
+
 }
 
 /**
@@ -45,6 +46,16 @@ function readDataAndCreateBoxPlot(){
 	var file = '/data/data-use-internal-interface-all-libraries.csv';
 	d3.csv(file, function(error, data) {
 		initBoxPlot(data);
+	});
+}
+
+/**
+ * Inicializa box plot.
+ */
+function readDataAndCreateTableAbout(){
+	var file = '/data/data-use-internal-interfaces-by-library-about.csv';
+	d3.csv(file, function(error, data) {
+		initTable(data);
 	});
 }
 

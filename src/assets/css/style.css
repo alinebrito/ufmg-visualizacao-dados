@@ -201,3 +201,7 @@ img {
 .panel-order {
 	margin-top: -18px;
 }
+
+.sortable thead {
+    cursor: pointer;
+}

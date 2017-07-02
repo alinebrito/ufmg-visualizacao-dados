@@ -256,7 +256,7 @@ function createDataFormatDonut(data){
 		var total = total_interface_internal + total_interface_public;
 		var type = line['name'];
 		var unit = ' Interfaces';
-		
+
 		var categories = new Array();
 		categories.push({'cat': 'Interfaces Internas', 'val': total_interface_internal});
 		categories.push({'cat': 'Interfaces Públicas', 'val': total_interface_public});
@@ -283,6 +283,6 @@ function createDonutCharPublicAndInternalInterface(data){
 		properties.divLegend = 'legend-internal-public';
 		properties.dataset = createDataFormatDonut(data);
 		var donuts = new DonutCharts(properties.div);
-		donuts.create(properties);   
+		donuts.create(properties);
 	}
 }

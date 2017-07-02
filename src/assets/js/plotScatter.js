@@ -88,7 +88,7 @@ function createScatter(properties){
 	.attr("y",  40 )
 	.attr("dy", "0.2em")
 	.style("text-anchor", "middle")
-	.style("font-size", "16px") 
+	.style("font-size", "16px")
 	.text("Bibliotecas");
 
 	// Adiciona Eixo Y previamente configurado.

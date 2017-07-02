@@ -12,6 +12,7 @@
 	readDataAndCreateBoxPlot();
 	readDataAndCreateScatterChart();
 	showScatterPlot();
+	readDataAndCreateTableAbout();
 
 	//Alterna entre os tipos de gráficos (Box Plot e Scatter Plot)
 	$("#typeChart label").click(function() {
@@ -36,5 +37,10 @@
 	$("#checkAll").click(function () {
 		$(".check").prop('checked', $(this).prop('checked'));
 	});
+
+	//Ordenação da tabela.
+  $("#table").on("click", "thead th", function(){
+    sortTable($(this)[0].cellIndex);
+  });
 
 });

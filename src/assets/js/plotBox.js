@@ -2,31 +2,30 @@
  * Script para criar os gráficos de BoxPlot.
  */
 
- var dataBoxPlot;
+var dataBoxPlot;
 
 /**
- * Função para criar os BoxPlot. 
+ * Função para criar os BoxPlot.
  * Adaptado de: http://bl.ocks.org/jensgrubert/7789216
  * Incluído function setX, color, ajustes dos metadados, escala de cores.
  */
- (function() {
- 	d3.box = function() {
- 		var width = 1;
- 		var height = 1;
- 		var duration = 0;
- 		var domain = null;
- 		var value = Number;
- 		var whiskers = boxWhiskers;
- 		var quartiles = boxQuartiles;
- 		var showLabels = true;
- 		var numBars = 4;
- 		var curBar = 1;
- 		var tickFormat = null;
- 		var x = null;
-		var color = d3.scale.category20(); // cor dos box plot.
+(function() {
+	d3.box = function() {
+	var width = 1;
+	var height = 1;
+	var duration = 0;
+	var domain = null;
+	var value = Number;
+	var whiskers = boxWhiskers;
+	var quartiles = boxQuartiles;
+	var showLabels = true;
+	var numBars = 4;
+	var curBar = 1;
+	var tickFormat = null;
+	var x = null;
+	var color = d3.scale.category20(); // cor dos box plot.
 
 		function box(g) {
-
 			g.each(function(data, i) {
 				var d = data[1].sort(d3.ascending);
 				var g = d3.select(this),
@@ -41,7 +40,7 @@
 				var whiskerIndices = whiskers && whiskers.call(this, d, i),
 				whiskerData = whiskerIndices && whiskerIndices.map(function(i) { return d[i]; });
 
-				// Calcula os  outliers. 
+				// Calcula os  outliers.
 				var outlierIndices = whiskerIndices	? d3.range(0, whiskerIndices[0]).concat(d3.range(whiskerIndices[1] + 1, n)): d3.range(n);
 
 				// Configura escala do eixo X.
@@ -204,14 +203,14 @@
 					.transition()
 					.duration(duration)
 					.attr("y", x1);
-				}	
+				}
 
 				boxTick.transition()
 				.duration(duration)
 				.text(format)
 				.attr("y", x1);
 
-				// Atualiza ticks. 
+				// Atualiza ticks.
 				var whiskerTick = g.selectAll("text.whisker")
 				.data(whiskerData || []);
 				if(showLabels == true) {
@@ -240,52 +239,52 @@
 				.style("opacity", 1e-6)
 				.remove();
 			});
-d3.timer.flush();
-}
+			d3.timer.flush();
+		}
 
-box.width = function(x) {
-	if(!arguments.length){
-		return width;
-	} 
-	width = x;
-	return box;
-};
+		box.width = function(x) {
+			if(!arguments.length){
+				return width;
+			}
+			width = x;
+			return box;
+		};
 
-box.height = function(x) {
-	if(!arguments.length){
-		return height;
-	}
-	height = x;
-	return box;
-};
+		box.height = function(x) {
+			if(!arguments.length){
+				return height;
+			}
+			height = x;
+			return box;
+		};
 
-box.tickFormat = function(x) {
-	if(!arguments.length){
-		return tickFormat;
-	}
-	tickFormat = x;
-	return box;
-};
+		box.tickFormat = function(x) {
+			if(!arguments.length){
+				return tickFormat;
+			}
+			tickFormat = x;
+			return box;
+		};
 
-box.duration = function(x) {
-	if(!arguments.length){
-		return duration;
-	} 
-	duration = x;
-	return box;
-};
+		box.duration = function(x) {
+			if(!arguments.length){
+				return duration;
+			}
+			duration = x;
+			return box;
+		};
 
-box.domain = function(x) {
-	if(!arguments.length) 
-		return domain;
-	domain = (x == null) ? x : d3.functor(x);
-	return box;
-};
+		box.domain = function(x) {
+			if(!arguments.length)
+				return domain;
+			domain = (x == null) ? x : d3.functor(x);
+			return box;
+		};
 
 		//Seta escala X com nome das bibliotecas.
 		//Utilizado na configraçãod as cores dos boxPlot.
 		box.setX = function(value) {
-			if(!arguments.length) 
+			if(!arguments.length)
 				return domain;
 			x = value;
 			return box;
@@ -294,15 +293,15 @@ box.domain = function(x) {
 		box.value = function(x) {
 			if (!arguments.length){
 				return value;
-			} 
+			}
 			value = x;
 			return box;
 		};
 
 		box.whiskers = function(x) {
-			if (!arguments.length){ 
+			if (!arguments.length){
 				return whiskers;
-			} 
+			}
 			whiskers = x;
 			return box;
 		};
@@ -310,7 +309,7 @@ box.domain = function(x) {
 		box.showLabels = function(x) {
 			if (!arguments.length){
 				return showLabels;
-			} 
+			}
 			showLabels = x;
 			return box;
 		};
@@ -338,32 +337,26 @@ box.domain = function(x) {
 	}
 })();
 
-
-/**
- * 
- */
 /**
  * Formata os dados para o BoxPlot.
  * @param  {[type]} csv  [csv do gráfico]
  * @param  {[type]} sort [tipo de ordenação]
  */
- function createDataFormatBoxPlot(csv, sort){
- 	var header = Object.keys(csv[0]);
- 	var data = [];
-
- 	for(var i=0; i<header.length; i++){
- 		data[i] = [];
- 		data[i][1] = [];
- 		data[i][0] = header[i];
- 	}
-
- 	csv.forEach(function(d) {
- 		for(var i=0; i<header.length; i++){
- 			var key = header[i];
- 			var value =  Number(d[key]);
- 			data[i][1].push(value);
- 		}
- 	});
+function createDataFormatBoxPlot(csv, sort){
+	var header = Object.keys(csv[0]);
+	var data = [];
+	for(var i=0; i<header.length; i++){
+		data[i] = [];
+		data[i][1] = [];
+		data[i][0] = header[i];
+	}
+	csv.forEach(function(d) {
+		for(var i=0; i<header.length; i++){
+			var key = header[i];
+			var value =  Number(d[key]);
+			data[i][1].push(value);
+		}
+	});
 
 	//Ordena por popularidade se necessário.
 	if(sort == 2){
@@ -391,17 +384,17 @@ box.domain = function(x) {
 	var height = 250 - margin.top - margin.bottom;
 	var min = 0;
 	var max = 0;
-	
+
 	//Calcula limite do eixo Y.
-	properties.dataset.forEach(	function(d) { 
+	properties.dataset.forEach(	function(d) {
 		var maxOption = d3.max(d[1], function(val) { return +val;});
 		max = (maxOption > max) ? maxOption : max;
 	});
 
 	// Configura eixo X.
-	var x = d3.scale.ordinal()	   
-	.domain(properties.dataset.map(function(d) { return d[0] } ) )	    
-	.rangeRoundBands([0 , width], 0.7, 0.3); 		
+	var x = d3.scale.ordinal()
+	.domain(properties.dataset.map(function(d) { return d[0] } ) )
+	.rangeRoundBands([0 , width], 0.7, 0.3);
 
 	var xAxis = d3.svg.axis()
 	.scale(x)
@@ -419,7 +412,7 @@ box.domain = function(x) {
 	var chart = d3.box()
 	.setX(x)
 	.whiskers(iqr(1.5))
-	.height(height)	
+	.height(height)
 	.domain([min, max])
 	.showLabels(labels);
 
@@ -429,16 +422,16 @@ box.domain = function(x) {
 	.attr("id", properties.div + "-svg")
 	.attr("width", width + margin.left + margin.right)
 	.attr("height", height + margin.top + margin.bottom)
-	.attr("class", "box")    
+	.attr("class", "box")
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	//Desenha os boxplots	
-	svg.selectAll(".box")	   
+	//Desenha os boxplots
+	svg.selectAll(".box")
 	.data(properties.dataset)
 	.enter().append("g")
 	.attr("transform", function(d) { return "translate(" +  x(d[0])  + "," + margin.top + ")"; } )
-	.call(chart.width(x.rangeBand())); 
+	.call(chart.width(x.rangeBand()));
 
 	// Adiciona eixo Y.
 	svg.append("g")
@@ -449,10 +442,10 @@ box.domain = function(x) {
 	.attr("y", 6)
 	.attr("dy", "-3.5em")
 	.style("text-anchor", "end")
-	.style("font-size", "11px") 
-	.text("Uso das Interfaces Internas (%)");		
+	.style("font-size", "11px")
+	.text("Uso das Interfaces Internas (%)");
 
-	// Adiciona eixo X.	
+	// Adiciona eixo X.
 	svg.append("g")
 	.attr("class", "x axis")
 	.attr("transform", "translate(0," + (height  + margin.top + 10) + ")")
@@ -462,8 +455,8 @@ box.domain = function(x) {
 	.attr("y",  40 )
 	.attr("dy", "0.2em")
 	.style("text-anchor", "middle")
-	.style("font-size", "16px") 
-	.text("Bibliotecas"); 
+	.style("font-size", "16px")
+	.text("Bibliotecas");
 
 	//Calcula o interquartile.
 	function iqr(k) {
