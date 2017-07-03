@@ -5,7 +5,7 @@
 //Configurações de margem.
 var margin = {top: 40, right: 20, bottom: 50, left: 60};
 var width = - margin.left - margin.right - 40;
-var height = 250 - margin.top - margin.bottom;
+var height = 210 - margin.top - margin.bottom;
 
 //Dados originais dos gráficos.
 var dataChartI = null;

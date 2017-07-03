@@ -33,9 +33,9 @@ function ramdomPoint(value){
 */
 function createScatter(properties){
 
-	var margin = {top: 5, right: 20, bottom: 70, left: 50};
+	var margin = {top: 5, right: 20, bottom: 50, left: 50};
 	var width = properties.width - margin.left - margin.right - 400;
-	var height = 250 - margin.top - margin.bottom;
+	var height = 200 - margin.top - margin.bottom;
 
 	// Escala de cor.
 	color = d3.scale.category20();
@@ -97,8 +97,8 @@ function createScatter(properties){
 	.call(yAxis)
 	.append("text")
 	.attr("transform", "rotate(-90)")
-	.attr("y", 6)
-	.attr("dy", "-4.5em")
+	.attr("y", 7)
+	.attr("dy", "-3.5em")
 	.style("font-size", "11px")
 	.style("text-anchor", "end")
 	.text(properties.labelY);
@@ -108,7 +108,7 @@ function createScatter(properties){
 	.data(properties.dataset)
 	.enter().append("circle")
 	.attr("class", "dot")
-	.attr("r", function(d) { return d.usage * 2; })//raio do ponto, proporcional a sua popularidade.
+	.attr("r", function(d) { return d.usage * 1.6; })//raio do ponto, proporcional a sua popularidade.
 	.attr("cx", function(d) {return x0(d.library) + ramdomPoint(30)}) //ramdom para exibir pontos em volta do eixo principal.
 	.attr("cy", function(d) { return y(d.usage); })
 	.style("fill", function(d) {return color(x0(d.library));})//cor do ponto
@@ -184,7 +184,6 @@ function createScatterPlot(data, listLibs){
 		properties.div = 'chart22-area-plot';
 		properties.dataset = createDataFormatScatterPlot(data);
 		properties.width = listLibs ? ((listLibs.length * 110) + 500) : window.innerWidth * 1.5;
-		console.log("teste" + properties.width)
 		properties.labelY = 'Uso da Interface Interna (%)';
 		var chart = createScatter(properties);
 	}

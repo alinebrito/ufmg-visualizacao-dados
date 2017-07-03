@@ -421,9 +421,9 @@ function createDataFormatBoxPlot(csv, sort){
  function createBoxPlot(properties){
 
 	var labels = true; // mostrar os labels ao lado de cada boxplot.
-	var margin = {top: 10, right: 20, bottom: 70, left: 60};
+	var margin = {top: 5, right: 20, bottom: 60, left: 60};
 	var width = properties.width - margin.left - margin.right - 400;
-	var height = 250 - margin.top - margin.bottom;
+	var height = 200 - margin.top - margin.bottom;
 	var min = 0;
 	var max = 0;
 
